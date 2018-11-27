@@ -35,7 +35,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 
-PROMPT='%m %~%# '
+PROMPT='%F{cyan}%~%(1j. %F{yellow}%j%f.)%(0?.. %F{9}%?%f%b)%F{magenta}%#%f '
 RPROMPT='%T%s'
 #RPROMPT='%(0T:%SGo to BED!:)%(1T:%SIts too late for this:) %T%s'
 
@@ -51,8 +51,17 @@ RPROMPT='%T%s'
 
 chpwd
 
+# static named directories zshexpn(1)
+tt=/home/matt/go/src/github.com/teltech
+
 # disable flow control
 stty -ixoff -ixon
 
 source ~/.config/zsh/env
 source ~/.config/zsh/alias
+
+source ~/.config/zsh/z.sh
+source ~/.config/zsh/gcloud
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec sx
+fi
