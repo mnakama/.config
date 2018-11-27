@@ -1,0 +1,70 @@
+EDITOR='nvim'
+
+alias ls='ls --color=auto -N'
+alias grep='grep --color=auto'
+alias vixb='vi ~/.config/X/xbindkeysrc && killall xbindkeys && ~/.config/autostart-pre/*xbindkeys'
+alias vial='$EDITOR ~/.config/zsh/alias && source ~/.config/zsh/alias'
+alias vihk='cd ~/projects/xhotkey && $EDITOR xhotkey.c && make && killall xhotkey; cd && ~/projects/xhotkey/xhotkey &!'
+#alias aoeu='setxkbmap us'
+#alias asdf='setxkbmap -layout us -variant dvorak-alt-intl -option "compose:menu" -option "caps:escape"'
+alias pac='super pacman'
+alias pacs='pacman -Ss --color=always'
+alias pacu='super pacman -Syu'
+alias pacget='curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/package_name.tar.gz'
+alias s='super'
+alias u='suid'
+alias d='pls'
+alias v='nvim'
+
+alias o='ls'
+alias oo='ls -lh'
+alias c='LESS="-cR" less'
+alias C='nvim "+set nonu" -R'
+
+alias g='git'
+alias gb='git branch'
+alias gp='git pull'
+alias gpush='git push'
+alias ga='git add'
+alias gap='clear; git add -p'
+alias gai='clear; git add --interactive'
+alias gs='git status -s'
+alias gd='LESS="-cRS" git diff'
+alias gdc='LESS="-cRS" git diff --cached'
+alias gl='LESS="-cRS" git log'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gch='git checkout'
+alias gg='LESS="-cRS" git log --graph --oneline'
+alias gga='LESS="-cRS" git log --graph --oneline --all'
+
+alias abcde='abcde -P -c $HOME/.config/abcde.conf'
+alias wnas='wol d0:50:99:7d:59:c0'
+
+alias driveb='sudo cryptsetup create --hash none --cipher aes-xts-plain64 -y -s 512 --key-file /home/matt/driveb data /dev/disk/by-partlabel/data && sudo mount /dev/mapper/data /home/matt/data'
+alias drivez='sudo cryptsetup create --hash none --cipher aes-xts-plain64 -y -s 512 --key-file /home/matt/driveb data /dev/disk/by-partlabel/data && sudo mount /dev/mapper/data /home/matt/data'
+
+alias unifi='docker run --rm --init -p 8880:8880 -p 8080:8080 -p 8443:8443 -p 8843:8843 -p 3478:3478/udp -p 10001:10001/udp -e TZ='America/New_York' -v ~/unifi:/unifi --name unifi jacobalberty/unifi:stable'
+
+alias rvnc='vncviewer -encodings "copyrect tight hextile zlib corre rre raw" -x11cursor -compresslevel 9'
+alias xpraattach='xpra attach tcp:localhost:5000 --encoding png --no-microphone --no-speaker --no-pulseaudio &'
+alias rd='rdesktop -x b -a 16 -N -K -k en-dv -g 1488x881'
+alias rd11='rdesktop -x lan -a 16 -N -K -k en-dv -g 1488x881'
+
+alias windows='nice qemu-kvm -soundhw sb16 -m 128 -localtime -usbdevice tablet -net nic,model=rtl8139 -net user -monitor stdio'
+
+# Games
+alias nes='pushd /mnt/windows/Users/Public/Games/roms/nes; fceux & popd'
+alias steam='echo you mean steam-native'
+alias glhack='glhack --mode 1600x900'
+alias nestv="DISPLAY=:0.1 SDL_AUDIODRIVER=alsa AUDIODEV=hdmi fceux"
+alias eve='WINEARCH=win32 wine /mnt/windows/Games\ \(x86\)/Eve\ Online/eve'
+alias runeve='WINEARCH=win32 wine /mnt/windows/Games\ \(x86\)/Eve\ Online/bin/ExeFile'
+alias mt='mount | column -t'
+alias xrecord='ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -qscale 9 /tmp/out.mpg'
+alias eso='WINEARCH=win32 WINEPREFIX=/home/matt/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\Launcher\Bethesda.net_Launcher.exe"'
+alias esoplay='WINEARCH=win32 WINEPREFIX=/home/matt/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\The Elder Scrolls Online\game\client\eso.exe"'
+alias darkforces='dosbox "/media/windows/Program Files (x86)/Steam/SteamApps/common/Dark Forces/Game"'
+
+# linux head tracking
+alias ltrack='ltr_pipe --format-uinput-abs --output-file=/dev/uinput'

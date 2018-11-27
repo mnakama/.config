@@ -1,0 +1,58 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete
+zstyle ':completion:*' completions 1
+zstyle ':completion:*' glob 1
+zstyle ':completion:*' max-errors 1
+zstyle ':completion:*' prompt '%e'
+zstyle ':completion:*' substitute 1
+zstyle :compinstall filename '/home/matt/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1500
+SAVEHIST=1000
+setopt appendhistory nomatch HIST_IGNORE_DUPS HIST_SAVE_NO_DUPS
+unsetopt autocd beep notify
+bindkey -v
+# End of lines configured by zsh-newuser-install
+export KEYTIMEOUT=1 # no delay
+
+#bindkey '^[[3~' delete-char
+bindkey '^[[P' delete-char
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey '^[[5~' history-search-backward
+bindkey '^[[6~' history-search-forward
+bindkey '^[[2~' overwrite-mode
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# Who doesn't want home and end to work?
+bindkey '\e[1~' beginning-of-line
+bindkey '\e[4~' end-of-line
+
+PROMPT='%m %~%# '
+RPROMPT='%T%s'
+#RPROMPT='%(0T:%SGo to BED!:)%(1T:%SIts too late for this:) %T%s'
+
+  chpwd() {
+    [[ -t 1 ]] || return
+    case $TERM in
+      sun-cmd) print -Pn "\e]l%~\e\\"
+        ;;
+      *xterm*|rxvt|(dt|k|E)term) print -Pn "\e]2;%~\a"
+        ;;
+    esac
+  }
+
+chpwd
+
+# disable flow control
+stty -ixoff -ixon
+
+source ~/.config/zsh/env
+source ~/.config/zsh/alias
