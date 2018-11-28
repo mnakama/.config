@@ -41,6 +41,11 @@ alias gch='git checkout'
 alias gg='LESS="-cRS" git log --graph --oneline'
 alias gga='LESS="-cRS" git log --graph --oneline --all'
 
+alias dk='docker'
+alias di='docker image ls'
+alias dp='docker ps'
+alias dps='docker ps -a'
+
 alias abcde='abcde -P -c $HOME/.config/abcde.conf'
 alias wnas='wol d0:50:99:7d:59:c0'
 
