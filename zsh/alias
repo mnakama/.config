@@ -63,6 +63,9 @@ alias windows='nice qemu-kvm -soundhw sb16 -m 128 -localtime -usbdevice tablet -
 
 # Games
 alias nes='pushd /mnt/windows/Users/Public/Games/roms/nes; fceux & popd'
+alias wpa='super wpa_supplicant -B -i wlp3s0 -c'
+alias wpah='wpa /etc/wpa_supplicant/Tomato50'
+alias wpaw='wpa /etc/wpa_supplicant/TelTech'
 alias steam='echo you mean steam-native'
 alias glhack='glhack --mode 1600x900'
 alias nestv="DISPLAY=:0.1 SDL_AUDIODRIVER=alsa AUDIODEV=hdmi fceux"
