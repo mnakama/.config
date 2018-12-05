@@ -14,9 +14,9 @@ endfunc
 
 nnoremap <C-s> :up<cr>
 
-autocmd BufWrite *.c,*.cpp,*.h,*.H,*.js,*.py,*.go let w:winview = winsaveview() | :call DeleteTrailingWS()
+autocmd BufWrite *.c,*.cpp,*.h,*.H,*.js,*.py let w:winview = winsaveview() | :call DeleteTrailingWS()
 autocmd BufWrite *.go :GoFmt
-autocmd BufWritePost *.c,*.cpp,*.h,*.H,*.js,*.py,*.go if exists('w:winview') | call winrestview(w:winview) | endif
+autocmd BufWritePost *.c,*.cpp,*.h,*.H,*.js,*.py if exists('w:winview') | call winrestview(w:winview) | endif
 
 execute pathogen#infect()
 execute pathogen#helptags()
