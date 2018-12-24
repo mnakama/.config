@@ -13,9 +13,13 @@ func! DeleteTrailingWS()
 endfunc
 
 nnoremap <C-s> :up<cr>
+nnoremap <silent> <BS> :nohl<cr>
+nnoremap <silent> <S-Tab> :bp<cr>
+nnoremap <silent> <Tab> :bn<cr>
+nnoremap <silent> <Del> :bd<cr>
+nnoremap <C-Space> :b<space>
 
 autocmd BufWrite *.c,*.cpp,*.h,*.H,*.js,*.py let w:winview = winsaveview() | :call DeleteTrailingWS()
-autocmd BufWrite *.go :GoFmt
 autocmd BufWritePost *.c,*.cpp,*.h,*.H,*.js,*.py if exists('w:winview') | call winrestview(w:winview) | endif
 
 execute pathogen#infect()
