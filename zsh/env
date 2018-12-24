@@ -6,3 +6,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #export PASSWORD_STORE_DIR=/mnt/nas/sync/matt/.password-store
 unset PASSWORD_STORE_DIR
 export PATH='/home/matt/bin:/opt/java/bin/:/home/matt/SpiderOak Hive/Programs/Python/':$PATH
+
+eval `ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent 2>/dev/null`
