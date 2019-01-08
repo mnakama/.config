@@ -7,4 +7,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 unset PASSWORD_STORE_DIR
 export PATH='/home/matt/bin:/opt/java/bin/:/home/matt/SpiderOak Hive/Programs/Python/':$PATH
 
+if [[ $HOST == beast ]]; then
+	export MPD_HOST=fe80::d250:99ff:fe7d:59c0%enp4s0
+fi
+
 eval `ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent 2>/dev/null`
