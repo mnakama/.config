@@ -7,10 +7,12 @@ set nu
 set mouse=a
 
 func! DeleteTrailingWS()
-  exe "normal mz"
+  "exe "normal mz"
   %s/\s\+$//ge
-  exe "normal `z"
+  "exe "normal `z"
 endfunc
+
+let mapleader = " "
 
 nnoremap <C-s> :up<cr>
 nnoremap <silent> <BS> :nohl<cr>
@@ -18,6 +20,9 @@ nnoremap <silent> <S-Tab> :bp<cr>
 nnoremap <silent> <Tab> :bn<cr>
 nnoremap <silent> <Del> :bd<cr>
 nnoremap <C-Space> :b<space>
+
+nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>gd :Gdiff<cr>
 
 autocmd BufWrite *.c,*.cpp,*.h,*.H,*.js,*.py let w:winview = winsaveview() | :call DeleteTrailingWS()
 autocmd BufWritePost *.c,*.cpp,*.h,*.H,*.js,*.py if exists('w:winview') | call winrestview(w:winview) | endif
