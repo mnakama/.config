@@ -5,7 +5,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #export XDG_RUNTIME_DIR=/tmp/runtime
 #export PASSWORD_STORE_DIR=/mnt/nas/sync/matt/.password-store
 unset PASSWORD_STORE_DIR
-export PATH='/home/matt/bin:/opt/java/bin/:/home/matt/SpiderOak Hive/Programs/Python/':$PATH
+export PATH='/home/matt/bin:/home/matt/go/bin:/opt/java/bin/:/home/matt/SpiderOak Hive/Programs/Python/':$PATH
 
 if [[ $HOST == beast ]]; then
 	export MPD_HOST=fe80::d250:99ff:fe7d:59c0%enp4s0
