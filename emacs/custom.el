@@ -50,7 +50,7 @@
 	("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-	(dracula-theme afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum use-package telephone-line js2-mode smart-tabs-mode evil-collection evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org evil-magit magit evil-visual-mark-mode)))
+	(go-snippets yasnippet swiper dracula-theme afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum use-package telephone-line js2-mode smart-tabs-mode evil-collection evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org evil-magit magit evil-visual-mark-mode)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))

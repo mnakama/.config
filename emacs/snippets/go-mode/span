@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: span
+# key: span
+# description: trace.StartSpan()
+# --
+ctx, span := trace.StartSpan(ctx, "`(file-name-nondirectory (directory-file-name (vc-root-dir)))`/${1:FunctionName}")
+defer span.End()
+
+	  $0

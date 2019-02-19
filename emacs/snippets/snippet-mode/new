@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: new
+# key: new
+# description: new snippet
+# --
+# -*- mode: snippet -*-
+# name: ${1:name}
+# key: ${2:name}
+# description: ${3:desc}
+# --
+$0

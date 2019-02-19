@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: handler
+# key: handler
+# description: http handler
+# --
+func ${1:HandlerName}(${2:params}, log *logger.Log) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		$0
+	})
+}

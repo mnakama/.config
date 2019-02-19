@@ -35,11 +35,14 @@
 ; fix telephone-line after changing font size
 ;(telephone-line-separator-clear-cache telephone-line-abs-left)
 
-(set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true")
+;(set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true")
+(set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true")
 
 (use-package go-mode
   :mode "\\.go\\'"
-  :hook (before-save-hook . gofmt-before-save))
+  :hook (before-save . gofmt-before-save))
+
+;(add-hook 'before-save-hook 'gofmt-before-save)
 
 (use-package js2-mode
   :mode "\\.m?jsm?\\'"
@@ -50,9 +53,27 @@
   :config
   (smart-tabs-insinuate 'javascript))
 
+(use-package yasnippet
+  :init
+  (add-to-list 'load-path "~/.config/emacs/plugins/yasnippet")
+  :config
+  (yas-global-mode 1))
+
+(use-package go-snippets)
+
+(defun show-buffer-path ()
+  (interactive)
+  (message "%s" buffer-file-name))
+
 (use-package evil
   :config
   (evil-mode t)
+  ; missing vim keybinds
+  (define-key evil-motion-state-map (kbd "g <up>") 'evil-previous-visual-line)
+  (define-key evil-motion-state-map (kbd "g <down>") 'evil-next-visual-line)
+  (define-key evil-normal-state-map "\C-g" 'show-buffer-path)
+
+  ; my custom keybinds
   (define-key evil-normal-state-map "\C-s" 'save-buffer)
   (define-key evil-normal-state-map " gs" 'magit-status)
   (define-key evil-normal-state-map " gl" 'magit-log-all)
