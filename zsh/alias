@@ -89,6 +89,7 @@ alias wpa='super wpa_supplicant -B -i wlp3s0 -c'
 alias wpaa='wpa /etc/wpa_supplicant/all'
 alias wpah='wpa /etc/wpa_supplicant/Nakama50'
 alias wpaw='wpa /etc/wpa_supplicant/TelTech'
+alias dhcp='super dhcpcd -A wlp3s0'
 
 alias mt='mount | column -t'
 alias xrecord='ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -qscale 9 /tmp/out.mpg'

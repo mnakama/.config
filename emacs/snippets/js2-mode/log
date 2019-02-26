@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: log
+# key: log
+# description: log a variable
+# --
+console.log('${1:variable}:', $1);
+	$0

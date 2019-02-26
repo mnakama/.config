@@ -75,7 +75,9 @@
 
   ; my custom keybinds
   (define-key evil-normal-state-map "\C-s" 'save-buffer)
+  (define-key evil-normal-state-map "\C-w\C-n" 'evil-window-vnew)
   (define-key evil-normal-state-map " gs" 'magit-status)
+  (define-key evil-normal-state-map " gb" 'magit-blame)
   (define-key evil-normal-state-map " gl" 'magit-log-all)
   (define-key evil-normal-state-map " gg" 'magit-log-all-branches)
   (define-key evil-normal-state-map " gd" 'magit-diff-unstaged)
