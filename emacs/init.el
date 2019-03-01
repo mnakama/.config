@@ -35,8 +35,9 @@
 ; fix telephone-line after changing font size
 ;(telephone-line-separator-clear-cache telephone-line-abs-left)
 
-;(set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true")
-(set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true")
+(if (equal system-name "beast")
+	(set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true")
+  (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true"))
 
 (use-package go-mode
   :mode "\\.go\\'"
