@@ -46,7 +46,7 @@ alias db-robokiller='~/bin/start_sql_proxy_db.sh robokiller-146813:us-east1:robo
 
 alias g='git'
 alias gb='git branch'
-alias gf='git fetch'
+alias gf='git fetch -p'
 alias gp='git pull'
 alias gm='git merge'
 alias gpush='git push'

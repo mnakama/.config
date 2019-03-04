@@ -83,7 +83,9 @@
   (define-key evil-normal-state-map " gg" 'magit-log-all-branches)
   (define-key evil-normal-state-map " gd" 'magit-diff-unstaged)
   (define-key evil-normal-state-map " gD" 'magit-diff-staged)
-  (define-key evil-normal-state-map " gw" 'magit-diff-working-tree))
+  (define-key evil-normal-state-map " gw" 'magit-diff-working-tree)
+  (define-key evil-normal-state-map " ghl" 'git-link)
+  (define-key evil-visual-state-map " ghl" 'git-link))
 
 (use-package magit)
 (use-package evil-magit)
