@@ -110,7 +110,6 @@
 ;(lookup-key evil-motion-state-map "j")
 ;(lookup-key evil-ex-completion-map ":")
 
-(use-package smex)
 (use-package swiper)
 (use-package ivy
   :config
@@ -125,7 +124,6 @@
   (ivy-posframe-enable))
 
 ;(global-set-key "\M-x" 'execute-extended-command)
-;(global-set-key "\M-x" 'smex)
 
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
