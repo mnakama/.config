@@ -1,0 +1,163 @@
+html, body {
+	background-color: black !important;
+	color: white !important;
+}
+
+::-webkit-scrollbar {
+	background-color: hsl(0, 0%, 20%) !important;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: hsl(0, 0%, 30%) !important;
+	border: none !important;
+}
+
+.action.white {
+	background-image: none !important;
+	background-color: black !important;
+	color: white !important;
+}
+
+.action.white.active {
+	background-image: none !important;
+	background-color: hsl(0, 0%, 20%) !important;
+	color: white !important;
+}
+
+.action.white:hover {
+	background-image: none !important;
+	background-color: gray !important;
+	color: white !important;
+}
+
+.action.light-gray {
+	background-color: hsl(240, 12%, 32%) !important;
+	color: white !important;
+}
+
+#sidebar {
+	background-color: hsl(0, 0%, 10%) !important;
+}
+
+#sidebar .list-nav-item {
+	color: hsl(0, 0%, 70%) !important;
+}
+
+#sidebar .list-nav-item.active {
+	color: hsl(215, 80%, 50%) !important;
+}
+
+.column .completed-column-date-header {
+	background-color: hsl(210, 24%, 30%) !important;
+	color: white !important;
+}
+
+.column-story-count {
+	background-color: hsl(0, 0%, 20%) !important;
+	color: hsl(0, 0%, 80%) !important;
+}
+
+.story.feature {
+	background-color: hsl(60, 33%, 15%)  !important;
+}
+
+.story.chore {
+	background-color: hsl(180, 50%, 20%) !important;
+}
+
+.story.bug {
+	background-color: hsl(0, 50%, 20%) !important;
+}
+
+.story-summary .summary-title {
+	color: #eee !important;
+}
+
+.bulk-checkbox {
+	background-color: hsla(0, 0%, 0%, 20%) !important;
+	color: hsl(0, 0%, 100%) !important;
+}
+
+.bulk-checkbox .fa {
+	background-color: hsla(0, 0%, 0%, 20%) !important;
+	color: hsl(0, 0%, 80%) !important;
+}
+.bulk-checkbox .fa.fa-check-square {
+	color: hsl(120, 100%, 30%) !important;
+}
+
+.story-container {
+	box-shadow: none !important;
+}
+
+.story-container, .story-details {
+	background-color: hsl(0, 0%, 15%) !important;
+}
+
+.story-information *, .task, .tasks, .support-tickets {
+	border-color: hsl(0, 0%, 40%) !important;
+}
+
+.story-information .textfield:hover {
+	background: inherit !important;
+}
+
+.action.flat-white {
+	color: #bbb !important;
+	border-color: gray !important;
+}
+
+.section-head {
+	color: #eee !important;
+}
+
+.attribute {
+	border-color: #444 !important;
+}
+
+.attribute .name {
+	color: #bbb !important;
+}
+
+.attribute .value {
+	color: #eee !important;
+}
+
+.activity-focus-dropdown {
+	color: #ccc !important;
+}
+
+.tag {
+	background-color: #222 !important;
+	border-color: gray !important;
+	color: #bbb !important;
+}
+
+input, textarea, .preview-tab {
+	background-color: #222 !important;
+	border-color: gray !important;
+	color: #ddd !important;
+}
+
+.ghost {
+	color: gray !important;
+}
+
+.literal-tabs {
+	color: white !important;
+}
+
+.tab.active {
+	background-color: gray !important;
+	color: white !important;
+}
+
+.formatting-note {
+	background-color: inherit !important;
+	background-image: none !important;
+	box-shadow: none !important;
+}
+
+.helpers, .helpers a {
+	background-color: inherit !important;
+}
