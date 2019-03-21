@@ -1,3 +1,9 @@
+html {
+	--container-background-color: hsl(0, 0%, 15%);
+	--dim-text-color: hsl(0, 0%, 70%);
+	--textarea-background-color: #222;
+}
+
 html, body {
 	background-color: black !important;
 	color: white !important;
@@ -91,7 +97,7 @@ html, body {
 }
 
 .story-container, .story-details {
-	background-color: hsl(0, 0%, 15%) !important;
+	background-color: var(--container-background-color) !important;
 }
 
 .story-information *, .task, .tasks, .support-tickets {
@@ -134,7 +140,7 @@ html, body {
 }
 
 input, textarea, .preview-tab {
-	background-color: #222 !important;
+	background-color: var(--textarea-background-color) !important;
 	border-color: gray !important;
 	color: #ddd !important;
 }
@@ -147,8 +153,8 @@ input, textarea, .preview-tab {
 	color: white !important;
 }
 
-.tab.active {
-	background-color: gray !important;
+.tab.active, .tabs > .tab.active {
+	background-color: var(--textarea-background-color) !important;
 	color: white !important;
 }
 
@@ -160,4 +166,59 @@ input, textarea, .preview-tab {
 
 .helpers, .helpers a {
 	background-color: inherit !important;
+}
+
+#search-input {
+	background-color: transparent !important;
+}
+
+#search.active, #search:active {
+	background-color: black !important;
+}
+
+#panel-addNewStory, .panel-content, .add-new-dialog {
+	background-color: var(--container-background-color) !important;
+}
+
+button {
+	background-color: black !important;
+	color: var(--dim-text-color) !important;
+}
+
+button.tab.active, button:active {
+	background-color: hsl(0, 0%, 25%) !important;
+}
+
+.form-help-message {
+	background-color: var(--container-background-color) !important;
+	color: var(--dim-text-color) !important;
+}
+
+#add-new-button {
+	background-color: hsl(144, 100%, 32%) !important;
+}
+
+#add-new-button > * {
+	background-color: transparent !important;
+	color: white !important;
+}
+
+.bucket, .notification-dialog .notification, .notifications .caption, .notifications .caption .day-header, .notification-dialog .notification.mention {
+	background-color: var(--container-background-color) !important;
+	color: white !important;
+}
+
+.auto-story-link {
+	background-color: black !important;
+	color: hsl(39, 92%, 38%) !important;
+	border-color: #555 !important;
+}
+
+a.entity-title-link {
+	color: hsl(200, 100%, 50%) !important;
+}
+
+#footer {
+	background-color: var(--container-background-color) !important;
+	color: var(--dim-text-color) !important;
 }
