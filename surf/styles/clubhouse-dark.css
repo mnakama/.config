@@ -222,3 +222,7 @@ a.entity-title-link {
 	background-color: var(--container-background-color) !important;
 	color: var(--dim-text-color) !important;
 }
+
+.story-relationships ul {
+	color: white !important;
+}
