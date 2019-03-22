@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: icon
+# key: icon
+# description: ion-icon
+# --
+m('ion-icon', {name:'${1:heart}'})
