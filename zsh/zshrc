@@ -36,8 +36,6 @@ bindkey '\e[1~' beginning-of-line
 bindkey '\e[4~' end-of-line
 
 PROMPT='%F{cyan}%~%(1j. %F{yellow}%j%f.)%(0?.. %F{9}%?%f%b)%F{magenta}%#%f '
-RPROMPT='%F{12}%T%f'
-#RPROMPT='%(0T:%SGo to BED!:)%(1T:%SIts too late for this:) %T%s'
 
   chpwd() {
     [[ -t 1 ]] || return
