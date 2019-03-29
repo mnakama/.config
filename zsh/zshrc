@@ -67,3 +67,7 @@ fi
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec sx
 fi
+
+if test -f /home/matt/.config/broot/launcher/bash/br; then
+	source /home/matt/.config/broot/launcher/bash/br
+fi

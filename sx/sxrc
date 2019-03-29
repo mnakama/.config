@@ -1,13 +1,17 @@
 cd
 
+if test -f ~/.config/sx/Xresources; then
+	xrdb -merge ~/.config/sx/Xresources
+fi
 xinput set-float-prop 6 'Coordinate Transformation Matrix' 0.2 0 0 0 0.2 0 0 0 1
 
-#cd ~/.config/autostart-pre
+systemctl --user import-environment DISPLAY
+
+# no cd; should keep current working directory as $HOME
 for file in `ls -1 ~/.config/autostart-pre`; do
   ~/.config/autostart-pre/$file
 done
 
-#cd ~/.config/autostart-bin
 for file in `ls -1 ~/.config/autostart-bin`; do
   ~/.config/autostart-bin/$file &
 done
