@@ -1,7 +1,6 @@
 export VISUAL='/usr/bin/nvim'
 export EDITOR=nvim
 #export PULSE_SOURCE=2
-export _JAVA_AWT_WM_NONREPARENTING=1
 #export XDG_RUNTIME_DIR=/tmp/runtime
 #export PASSWORD_STORE_DIR=/mnt/nas/sync/matt/.password-store
 unset PASSWORD_STORE_DIR
