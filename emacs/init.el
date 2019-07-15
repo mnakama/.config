@@ -19,6 +19,7 @@
 (setq show-paren-delay 0)
 (show-paren-mode t)
 (setq-default tab-width 4)
+(setq-default sgml-basic-offset 4)
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
