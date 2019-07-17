@@ -8,6 +8,7 @@ alias vihk='cd ~/projects/xhotkey && $EDITOR xhotkey.c && make && killall xhotke
 alias bl='pls sh -c "cat > /sys/class/backlight/intel_backlight/brightness"'
 
 alias jl='~/logParse.py'
+alias js='js60'
 
 alias pac='super pacman'
 alias pacs='pacman -Ss --color=always'
@@ -45,12 +46,14 @@ alias kp='k get pods'
 alias pods='k get pods'
 alias kl='k logs'
 
-alias db-rk='mysql -h35.185.62.192 -umnakama'
-alias db-rk-write='mysql -h104.196.196.65 -umnakama'
+alias db-rk='mysql -h35.196.56.107 -umnakama robokiller'
+alias db-rk-write='mysql -h104.196.196.65 -umnakama robokiller'
+alias db-rkc='mysql -h35.229.24.74 -umnakama robokiller'
+alias db-rkc-write='mysql -h35.243.248.215 -umnakama robokiller'
 alias db-tt='mysql -h35.185.117.219 -umnakama'
 alias db-teltech='~/bin/start_sql_proxy_db.sh teltech-1335:us-east1:teltech-production 3309 ~/db/teltech-sql-proxy-account-service.json'
 alias db-robokiller='~/bin/start_sql_proxy_db.sh robokiller-146813:us-east1:robokiller 3308 ~/service_accounts/robokiller/robokiller-146813-firebase-adminsdk-lcar4-c670a70045.json'
-alias db-rklookup='mysql --protocol tcp -h35.245.160.124 -uroot -p'
+alias db-rklookup='mysql --protocol tcp -h35.245.160.124 -uroot -p rklookup'
 
 alias g='git'
 alias gb='git branch'
