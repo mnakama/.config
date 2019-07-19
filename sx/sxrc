@@ -7,6 +7,7 @@ if test -f ~/.config/sx/Xresources; then
 	xrdb -merge ~/.config/sx/Xresources
 fi
 xinput set-float-prop 6 'Coordinate Transformation Matrix' 0.2 0 0 0 0.2 0 0 0 1
+xinput set-float-prop 11 'Coordinate Transformation Matrix' 0.2 0 0 0 0.2 0 0 0 1
 
 systemctl --user import-environment DISPLAY
 
