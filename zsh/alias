@@ -25,6 +25,8 @@ alias stop='super systemctl stop'
 alias restart='super systemctl restart'
 alias status='super systemctl status'
 
+alias rip='ssh 192.168.1.1 -p 26 "ip ad show dev eth0 |egrep -o '\''inet [0-9.]+'\''|cut -d'\'' '\'' -f2 |tr -d \"\n\"" 2>/dev/null'
+
 alias o='ls'
 alias oo='ls -lh'
 alias c='LESS="-cR" less'
@@ -55,6 +57,8 @@ alias db-tt='mysql --safe-updates -h35.185.117.219 -umnakama'
 alias db-teltech='~/bin/start_sql_proxy_db.sh teltech-1335:us-east1:teltech-production 3309 ~/db/teltech-sql-proxy-account-service.json'
 alias db-robokiller='~/bin/start_sql_proxy_db.sh robokiller-146813:us-east1:robokiller 3308 ~/service_accounts/robokiller/robokiller-146813-firebase-adminsdk-lcar4-c670a70045.json'
 alias db-rklookup='mysql --safe-updates --protocol tcp -h35.245.160.124 -uroot -p rklookup'
+alias db-cns='psql -h35.227.111.77 stats -U mnakama'
+alias db-cd='mysql --safe-updates -h35.245.185.72 -umnakama'
 
 alias g='git'
 alias gb='git branch'
