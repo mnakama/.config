@@ -49,7 +49,7 @@
 ; fix telephone-line after changing font size
 ;(telephone-line-separator-clear-cache telephone-line-abs-left)
 
-(if (equal system-name "beast")
+(if (equal (system-name) "beast")
 	(set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true")
   (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true"))
 
@@ -62,7 +62,18 @@
 (use-package js2-mode
   :mode "\\.m?jsm?\\'"
   :config
-  (add-to-list 'auto-mode-alist '("\\.m?jsm?\\'" . js2-mode)))
+  (add-to-list 'auto-mode-alist '("\\.m?jsm?\\'" . js2-mode))
+  (add-hook 'js2-mode-hook 'flow-minor-enable-automatically))
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :config
+  (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
+  (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
+  (flycheck-add-next-checker 'javascript-flow 'javascript-eslint))
+
+(use-package flycheck-flow)
 
 (use-package smart-tabs-mode
   :config
