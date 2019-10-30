@@ -1,19 +1,7 @@
-; -*- lexical-binding: t; -*-
+;;; init.el --- my config -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
-; startup performance enhancements
-(setq gc-cons-threshold (eval-when-compile (* 256 1024 1024)))
-
-(let ((saved-alist file-name-handler-alist))
-  (defun post-init-restore ()
-	(setq gc-cons-threshold (eval-when-compile (* 16 1024 1024))
-		  file-name-handler-alist saved-alist))
-  (add-hook 'after-init-hook #'post-init-restore))
-
-(setq file-name-handler-alist nil)
-
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
 (global-display-line-numbers-mode t)
 
 (setq show-paren-delay 0)
@@ -23,19 +11,13 @@
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
-(require 'package)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(setq package-enable-at-startup nil)
-(package-initialize)
 
 (setq custom-file "~/.config/emacs/custom.el")
 (load custom-file 'noerror)
 
 (require 'use-package)
-
-(setq evil-want-keybinding nil)
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 (use-package telephone-line
   :config
@@ -57,23 +39,22 @@
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
 
-;(add-hook 'before-save-hook 'gofmt-before-save)
-
 (use-package js2-mode
   :mode "\\.m?jsm?\\'"
   :config
   (add-to-list 'auto-mode-alist '("\\.m?jsm?\\'" . js2-mode))
   (add-hook 'js2-mode-hook 'flow-minor-enable-automatically))
 
+
 (use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode)
+  :config (global-flycheck-mode))
+
+(use-package flycheck-flow
+  :after flycheck
   :config
   (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
   (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
   (flycheck-add-next-checker 'javascript-flow 'javascript-eslint))
-
-(use-package flycheck-flow)
 
 (use-package smart-tabs-mode
   :config
@@ -92,6 +73,7 @@
   (message "%s" buffer-file-name))
 
 (use-package evil
+  :init (setq evil-want-keybinding nil)
   :config
   (evil-mode t)
   ; missing vim keybinds
@@ -112,6 +94,10 @@
   (define-key evil-normal-state-map " ghl" 'git-link)
   (define-key evil-visual-state-map " ghl" 'git-link))
 
+(use-package smartparens
+  :config (require 'smartparens-config)
+  :hook (prog-mode . smartparens-mode))
+
 (use-package magit)
 (use-package evil-magit)
 (use-package evil-collection
@@ -122,13 +108,31 @@
 ;(lookup-key evil-motion-state-map "j")
 ;(lookup-key evil-ex-completion-map ":")
 
-(use-package swiper)
+(use-package swiper
+  :bind
+  ("\C-s" . swiper))
+
 (use-package ivy
   :config
   (setq ivy-initial-inputs-alist nil)
-  (ivy-mode t))
+  (ivy-mode t)
+  (global-set-key (kbd "C-c C-r") 'ivy-resume))
 
-(use-package counsel)
+(use-package counsel
+  :bind
+  (
+   ("M-x" . counsel-M-x)
+   ("C-x C-f" . counsel-find-file)
+   ("<f1> f" . counsel-describe-function)
+   ("<f1> v" . counsel-describe-variable)
+   ("<f1> l" . counsel-find-library)
+   ("<f2> i" . counsel-info-lookup-symbol)
+   ("<f2> u" . counsel-unicode-char)
+   ("C-c g" . counsel-git)
+   ("C-c j" . counsel-git-grep)
+   ("C-c k" . counsel-ag)
+   ("M-y" . counsel-yank-pop)
+   (:map minibuffer-local-map ("C-r" . counsel-minibuffer-history))))
 
 (use-package ivy-posframe
   :config
@@ -137,17 +141,4 @@
 
 ;(global-set-key "\M-x" 'execute-extended-command)
 
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
-(global-set-key (kbd "M-y") 'counsel-yank-pop)
-(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+;;; init.el ends here
