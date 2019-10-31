@@ -72,6 +72,10 @@
   (interactive)
   (message "%s" buffer-file-name))
 
+(defun edit-emacs-config ()
+  (interactive)
+  (find-file "~/.config/emacs/init.el"))
+
 (use-package evil
   :init (setq evil-want-keybinding nil)
   :config
@@ -92,7 +96,8 @@
   (define-key evil-normal-state-map " gD" 'magit-diff-staged)
   (define-key evil-normal-state-map " gw" 'magit-diff-working-tree)
   (define-key evil-normal-state-map " ghl" 'git-link)
-  (define-key evil-visual-state-map " ghl" 'git-link))
+  (define-key evil-visual-state-map " ghl" 'git-link)
+  (define-key evil-normal-state-map " ec" 'edit-emacs-config))
 
 (use-package smartparens
   :config (require 'smartparens-config)
