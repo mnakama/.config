@@ -100,7 +100,9 @@
   (define-key evil-normal-state-map " ec" 'edit-emacs-config))
 
 (use-package smartparens
-  :config (require 'smartparens-config)
+  :config
+  (require 'smartparens-config)
+  (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
   :hook (prog-mode . smartparens-mode))
 
 (use-package magit)
