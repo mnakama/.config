@@ -37,6 +37,8 @@ alias p='popd'
 
 alias c-tt='gcloud config set project teltech-1335'
 alias c-rk='gcloud config set project robokiller-146813'
+alias c-cc='gcloud config set project nrcc-2017'
+alias ca='gcloud app'
 
 alias k='kubectl'
 alias kc-rk='k config use-context gke_robokiller-146813_us-east1-c_robokiller-api-v2'
@@ -49,6 +51,7 @@ alias kp='k get pods'
 alias pods='k get pods'
 alias kl='k logs'
 
+# databases
 alias db-rk='mysql -h35.196.56.107 -umnakama robokiller'
 alias db-rk-write='mysql --safe-updates -h104.196.196.65 -umnakama robokiller'
 alias db-rks='mysql --safe-updates -h35.237.70.20 -umnakama robokiller'
@@ -57,9 +60,12 @@ alias db-rkc-write='mysql --safe-updates -h35.243.248.215 -umnakama robokiller'
 alias db-tt='mysql --safe-updates -h35.185.117.219 -umnakama'
 alias db-teltech='~/bin/start_sql_proxy_db.sh teltech-1335:us-east1:teltech-production 3309 ~/db/teltech-sql-proxy-account-service.json'
 alias db-robokiller='~/bin/start_sql_proxy_db.sh robokiller-146813:us-east1:robokiller 3308 ~/service_accounts/robokiller/robokiller-146813-firebase-adminsdk-lcar4-c670a70045.json'
-alias db-rklookup='mysql --safe-updates --protocol tcp -h35.245.160.124 -umnakama -p rklookup'
-alias db-cns='psql -h35.227.111.77 stats -U mnakama'
-alias db-cd='mysql --safe-updates -h35.245.185.72 -umnakama'
+alias db-rklookup='mysql --protocol tcp -h35.245.160.124 -umnakama -p rklookup'
+
+# command center
+alias db-cns='psql -h35.227.111.77 stats -U mnakama' # number-stats
+alias db-cd='mysql --safe-updates -h35.245.185.72 -umnakama' # pubsub
+alias db-ci='mysql --safe-updates -h35.186.168.19 -umnakama' # identity
 
 alias g='git'
 alias gb='git branch'
