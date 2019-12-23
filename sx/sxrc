@@ -6,8 +6,13 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=
 if test -f ~/.config/sx/Xresources; then
 	xrdb -merge ~/.config/sx/Xresources
 fi
-xinput set-float-prop 6 'Coordinate Transformation Matrix' 0.2 0 0 0 0.2 0 0 0 1
-xinput set-float-prop 11 'Coordinate Transformation Matrix' 0.2 0 0 0 0.2 0 0 0 1
+
+HOST=`hostname`
+if [ $HOST = 'beast' ]; then
+	RAZER_ID=`xinput list --id-only 'pointer:Razer Razer Taipan'`
+	ACCEL=0.15
+	xinput set-float-prop $RAZER_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
+fi
 
 systemctl --user import-environment DISPLAY
 
