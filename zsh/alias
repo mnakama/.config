@@ -7,7 +7,7 @@ alias vial='$EDITOR ~/.config/zsh/alias && source ~/.config/zsh/alias'
 alias vihk='cd ~/projects/xhotkey && $EDITOR xhotkey.c && make && killall xhotkey; cd && ~/projects/xhotkey/xhotkey &!'
 alias bl='pls sh -c "cat > /sys/class/backlight/intel_backlight/brightness"'
 
-alias jl='~/logParse.py'
+alias jl='~/tt/logParse.py'
 alias js='js60'
 
 alias pac='super pacman'
