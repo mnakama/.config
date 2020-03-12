@@ -64,7 +64,7 @@ alias db-rklookup='mysql --protocol tcp -h35.245.160.124 -umnakama -p rklookup'
 
 # command center
 alias db-cns='psql -h35.227.111.77 stats -U mnakama' # number-stats
-alias db-cd='mysql --safe-updates -h35.245.185.72 -umnakama' # pubsub
+alias db-cd='mysql --safe-updates -h35.245.185.72 -umnakama warehouse' # pubsub
 alias db-ci='mysql --safe-updates -h35.186.168.19 -umnakama' # identity
 alias db-sms='psql -h35.245.94.51 -Upostgres sms' # sms-filter
 
