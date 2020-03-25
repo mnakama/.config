@@ -41,6 +41,7 @@ alias c-cc='gcloud config set project nrcc-2017'
 alias ca='gcloud app'
 
 alias k='kubectl'
+alias kc='k config use-context'
 alias kc-rk='k config use-context gke_robokiller-146813_us-east1-c_robokiller-api-v2'
 alias kc-tt='k config use-context gke_teltech-1335_us-east1-d_admin-web-cluster'
 alias kc-common='k config use-context gke_teltech-1335_us-east1-b_common'
@@ -52,21 +53,21 @@ alias pods='k get pods'
 alias kl='k logs'
 
 # databases
-alias db-rk='mysql -h35.196.56.107 -umnakama robokiller'
-alias db-rk-write='mysql --safe-updates -h104.196.196.65 -umnakama robokiller'
-alias db-rks='mysql --safe-updates -h35.237.70.20 -umnakama robokiller'
-alias db-rkc='mysql -h35.229.24.74 -umnakama robokiller'
-alias db-rkc-write='mysql --safe-updates -h35.243.248.215 -umnakama robokiller'
-alias db-tt='mysql -h35.190.189.53 -umnakama'
-alias db-teltech='~/bin/start_sql_proxy_db.sh teltech-1335:us-east1:teltech-production 3309 ~/db/teltech-sql-proxy-account-service.json'
-alias db-robokiller='~/bin/start_sql_proxy_db.sh robokiller-146813:us-east1:robokiller 3308 ~/service_accounts/robokiller/robokiller-146813-firebase-adminsdk-lcar4-c670a70045.json'
-alias db-rklookup='mysql --protocol tcp -h35.245.160.124 -umnakama -p rklookup'
+CSQL=/var/run/cloudsql
+alias db-rk="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-failover robokiller"
+alias db-rk-write="mysql --safe-updates -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller robokiller"
+alias db-rks="mysql --safe-updates -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-staging robokiller"
+alias db-rkc="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-calls-failover robokiller"
+alias db-rkc-write="mysql --safe-updates -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-calls robokiller"
+alias db-tt="mysql --safe-updates -umnakama -S $CSQL/teltech-1335:us-east1:teltech-prod"
+alias db-rklookup="mysql -umnakama -S $CSQL/robokiller-146813:us-east4:rk-lookup -p rklookup"
 
 # command center
 alias db-cns='psql -h35.227.111.77 stats -U mnakama' # number-stats
 alias db-cd='mysql --safe-updates -h35.245.185.72 -umnakama warehouse' # pubsub
 alias db-ci='mysql --safe-updates -h35.186.168.19 -umnakama' # identity
-alias db-sms='psql -h35.245.94.51 -Upostgres sms' # sms-filter
+alias db-sms='psql -h35.245.94.51 -Umnakama sms' # sms-filter
+alias db-mll='psql -h35.245.40.197 -Umnakama label_buckets' # nrcc-ml-labeling
 
 alias g='git'
 alias gb='git branch'
