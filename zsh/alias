@@ -42,6 +42,8 @@ alias ca='gcloud app'
 
 alias k='kubectl'
 alias kc='k config use-context'
+alias kcg='k config get-contexts'
+alias kcmv='k config rename-context'
 alias kc-rk='k config use-context gke_robokiller-146813_us-east1-c_robokiller-api-v2'
 alias kc-tt='k config use-context gke_teltech-1335_us-east1-d_admin-web-cluster'
 alias kc-common='k config use-context gke_teltech-1335_us-east1-b_common'
