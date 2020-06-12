@@ -6,5 +6,6 @@ export EDITOR=nvim
 unset PASSWORD_STORE_DIR
 export PATH='/home/matt/bin:/home/matt/go/bin:/opt/java/bin/:/home/matt/SpiderOak Hive/Programs/Python/':$PATH
 export GOPRIVATE='github.com/teltech'
+export MPD_HOST="$XDG_RUNTIME_DIR/mpd/socket"
 
 eval `ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent 2>/dev/null`

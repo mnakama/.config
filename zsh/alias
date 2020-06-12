@@ -44,12 +44,6 @@ alias k='kubectl'
 alias kc='k config use-context'
 alias kcg='k config get-contexts'
 alias kcmv='k config rename-context'
-alias kc-rk='k config use-context gke_robokiller-146813_us-east1-c_robokiller-api-v2'
-alias kc-tt='k config use-context gke_teltech-1335_us-east1-d_admin-web-cluster'
-alias kc-common='k config use-context gke_teltech-1335_us-east1-b_common'
-alias kc-web='k config use-context gke_teltech-1335_us-central1-f_web-sites-general'
-alias kc-rkweb='k config use-context gke_robokiller-146813_us-central1-b_robokiller-web'
-alias kc-rklookup='k config use-context gke_robokiller-146813_us-east4-a_robo-lookup'
 alias kp='k get pods'
 alias pods='k get pods'
 alias kl='k logs'
@@ -65,11 +59,13 @@ alias db-tt="mysql --safe-updates -umnakama -S $CSQL/teltech-1335:us-east1:telte
 alias db-rklookup="mysql -umnakama -S $CSQL/robokiller-146813:us-east4:rk-lookup -p rklookup"
 
 # command center
+alias db-ps='mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-pubsub -umnakama warehouse' # pubsub
+alias db-ci='mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-identity -umnakama' # identity
+alias db-aa="mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-audio-anonymizer -umnakama audio-anonymizer" # audio-anonymizer
 alias db-cns='psql -h35.227.111.77 stats -U mnakama' # number-stats
-alias db-cd='mysql --safe-updates -h35.245.185.72 -umnakama warehouse' # pubsub
-alias db-ci='mysql --safe-updates -h35.186.168.19 -umnakama' # identity
 alias db-sms='psql -h35.245.94.51 -Umnakama sms' # sms-filter
-alias db-mll='psql -h35.245.40.197 -Umnakama label_buckets' # nrcc-ml-labeling
+alias db-ml='psql -h35.245.21.68 -Umnakama postgres' # ml-labeling
+alias db-cs='psql -h35.236.235.190 -Umnakama callback_scraper' # callback-scraper
 
 alias g='git'
 alias gb='git branch'
