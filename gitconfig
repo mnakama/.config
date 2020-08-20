@@ -5,3 +5,5 @@
 	insteadOf = https://github.com/
 [github]
 	user = mnakama
+[pull]
+	rebase = true
