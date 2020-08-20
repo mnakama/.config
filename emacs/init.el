@@ -11,13 +11,14 @@
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
-
-(setq custom-file "~/.config/emacs/custom.el")
-(load custom-file 'noerror)
-
 (require 'use-package)
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
+
+(use-package dracula-theme)
+
+(setq custom-file "~/.config/emacs/custom.el")
+(load custom-file 'noerror)
 
 (use-package telephone-line
   :config
@@ -31,9 +32,10 @@
 ; fix telephone-line after changing font size
 ;(telephone-line-separator-clear-cache telephone-line-abs-left)
 
+
 (if (equal (system-name) "beast")
-	(set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true")
-  (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true"))
+  (set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true" nil t)
+(set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t))
 
 (use-package go-mode
   :mode "\\.go\\'"

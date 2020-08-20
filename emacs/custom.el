@@ -16,7 +16,10 @@
  '(cua-read-only-cursor-color "#859900")
  '(custom-enabled-themes '(dracula))
  '(custom-safe-themes
-   '("947190b4f17f78c39b0ab1ea95b1e6097cc9202d55c73a702395fc817f899393" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "2540689fd0bc5d74c4682764ff6c94057ba8061a98be5dd21116bf7bf301acfb" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "36c86cb6c648b9a15d849026c90bd6a4ae76e4d482f7bcd138dedd4707ff26a5" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" default))
+   '("24714e2cb4a9d6ec1335de295966906474fdb668429549416ed8636196cb1441" "947190b4f17f78c39b0ab1ea95b1e6097cc9202d55c73a702395fc817f899393" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "2540689fd0bc5d74c4682764ff6c94057ba8061a98be5dd21116bf7bf301acfb" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "36c86cb6c648b9a15d849026c90bd6a4ae76e4d482f7bcd138dedd4707ff26a5" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" default))
+ '(ediff-merge-split-window-function 'split-window-vertically)
+ '(ediff-prefer-iconified-control-frame t)
+ '(ediff-use-long-help-message nil)
  '(fci-rule-color "#003f8e")
  '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
  '(frame-background-mode 'dark)
@@ -44,7 +47,7 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
  '(package-selected-packages
-   '(yaml-mode evil-surround evil-smartparens smartparens flycheck-flow flycheck flow-js2-mode php-mode go-rename indium kubernetes forge magit-gh-pulls magithub git-link go-snippets yasnippet swiper dracula-theme afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum use-package telephone-line js2-mode smart-tabs-mode evil-collection evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org evil-magit magit evil-visual-mark-mode))
+   '(use-package evil-collection evil-magit forge elpy restclient yaml-mode evil-surround evil-smartparens smartparens flycheck-flow flycheck flow-js2-mode php-mode go-rename indium kubernetes magit-gh-pulls magithub git-link go-snippets yasnippet swiper afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum telephone-line js2-mode smart-tabs-mode evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org magit evil-visual-mark-mode))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
