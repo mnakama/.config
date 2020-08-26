@@ -97,6 +97,8 @@
   (define-key evil-normal-state-map " gd" 'magit-diff-unstaged)
   (define-key evil-normal-state-map " gD" 'magit-diff-staged)
   (define-key evil-normal-state-map " gw" 'magit-diff-working-tree)
+  (define-key evil-normal-state-map " gco" 'magit-commit)
+  (define-key evil-normal-state-map " gch" 'magit-checkout)
   (define-key evil-normal-state-map " ghl" 'git-link)
   (define-key evil-visual-state-map " ghl" 'git-link)
   (define-key evil-normal-state-map " ec" 'edit-emacs-config))
@@ -112,6 +114,9 @@
 (use-package evil-collection
   :config
   (evil-collection-init))
+
+(setq auto-revert-check-vc-info t)
+(setq auto-revert-interval 60)
 
 ; lookups:
 ;(lookup-key evil-motion-state-map "j")
