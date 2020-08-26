@@ -100,6 +100,7 @@ alias dk='docker'
 alias di='docker image ls'
 alias dp='docker ps'
 alias dps='docker ps -a'
+alias dclean='docker system prune --volumes -fa'
 
 alias cbf='gcloud builds log --stream `gcloud builds list --ongoing --limit=1 | tail -1|cut -f1 -d" "`'
 alias cbff='gcloud builds log --stream `gcloud builds list --limit=1 | tail -1|cut -f1 -d" "`'
