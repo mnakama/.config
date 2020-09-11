@@ -63,6 +63,7 @@ alias db-ci='mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-identity -u
 alias db-aa="mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-audio-anonymizer -umnakama audio-anonymizer" # audio-anonymizer
 alias db-cns='psql -h35.227.111.77 stats -U mnakama' # number-stats
 alias db-sms='psql -h35.245.94.51 -Umnakama sms' # sms-filter
+alias db-smsr='psql -h34.86.29.239 -Umnakama sms' # sms-filter
 alias db-smsf='mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-sms -umnakama fingerprint' # sms-fingerprint
 alias db-ml='psql -h35.245.21.68 -Umnakama postgres' # ml-labeling
 alias db-cs='psql -h35.236.235.190 -Umnakama callback_scraper' # callback-scraper
