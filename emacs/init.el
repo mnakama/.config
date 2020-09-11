@@ -78,6 +78,8 @@
   (interactive)
   (find-file "~/.config/emacs/init.el"))
 
+(require 'sql)
+
 (use-package evil
   :init (setq evil-want-keybinding nil)
   :config
@@ -90,6 +92,8 @@
   ; my custom keybinds
   (define-key evil-normal-state-map "\C-s" 'save-buffer)
   (define-key evil-normal-state-map "\C-w\C-n" 'evil-window-vnew)
+  (define-key evil-normal-state-map " m" 'magit-dispatch)
+  (define-key evil-normal-state-map " ga" 'magit-stage-file)
   (define-key evil-normal-state-map " gs" 'magit-status)
   (define-key evil-normal-state-map " gb" 'magit-blame)
   (define-key evil-normal-state-map " gl" 'magit-log-all)

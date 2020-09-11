@@ -47,7 +47,7 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
  '(package-selected-packages
-   '(use-package evil-collection evil-magit forge elpy restclient yaml-mode evil-surround evil-smartparens smartparens flycheck-flow flycheck flow-js2-mode php-mode go-rename indium kubernetes magit-gh-pulls magithub git-link go-snippets yasnippet swiper afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum telephone-line js2-mode smart-tabs-mode evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org magit evil-visual-mark-mode))
+   '(markdown-mode use-package evil-collection evil-magit forge elpy restclient yaml-mode evil-surround evil-smartparens smartparens flycheck-flow flycheck flow-js2-mode php-mode go-rename indium kubernetes magit-gh-pulls magithub git-link go-snippets yasnippet swiper afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum telephone-line js2-mode smart-tabs-mode evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org magit evil-visual-mark-mode))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
