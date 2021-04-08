@@ -47,10 +47,41 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
  '(package-selected-packages
-   '(markdown-mode use-package evil-collection evil-magit forge elpy restclient yaml-mode evil-surround evil-smartparens smartparens flycheck-flow flycheck flow-js2-mode php-mode go-rename indium kubernetes magit-gh-pulls magithub git-link go-snippets yasnippet swiper afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum telephone-line js2-mode smart-tabs-mode evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org magit evil-visual-mark-mode))
+   '(kubernetes-evil go-tag gorepl-mode gore-mode markdown-mode use-package evil-collection evil-magit forge elpy restclient yaml-mode evil-surround evil-smartparens smartparens flycheck-flow flycheck flow-js2-mode php-mode go-rename indium kubernetes magit-gh-pulls magithub git-link go-snippets yasnippet swiper afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum telephone-line js2-mode smart-tabs-mode evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org magit evil-visual-mark-mode))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
+ '(sql-connection-alist
+   '(("sms-filter-readonly"
+	  (sql-product 'postgres)
+	  (sql-user "mnakama")
+	  (sql-database "sms")
+	  (sql-server "34.86.29.239"))
+	 ("callback-scraper"
+	  (sql-product 'postgres)
+	  (sql-user "mnakama")
+	  (sql-database "callback_scraper")
+	  (sql-server "35.236.235.190"))
+	 ("sms-core"
+	  (sql-product 'postgres)
+	  (sql-user "mnakama")
+	  (sql-database "sms-filter")
+	  (sql-server "35.245.76.225"))
+	 ("sms-warehouse"
+	  (sql-product 'postgres)
+	  (sql-user "mnakama")
+	  (sql-database "sms")
+	  (sql-server "35.188.253.88"))
+	 ("sms-filter"
+	  (sql-product 'postgres)
+	  (sql-user "mnakama")
+	  (sql-database "sms")
+	  (sql-server "35.245.94.51"))
+	 ("cc-pubsub"
+	  (sql-product 'mysql)
+	  (sql-user "mnakama")
+	  (sql-database "warehouse")
+	  (sql-server ""))))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
  '(vc-annotate-background nil)

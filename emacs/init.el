@@ -8,6 +8,7 @@
 (show-paren-mode t)
 (setq-default tab-width 4)
 (setq-default sgml-basic-offset 4)
+(setq inhibit-splash-screen t)
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
@@ -37,9 +38,17 @@
   (set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true" nil t)
 (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t))
 
+(add-hook 'c-mode-common-hook (setq-default c-basic-offset 4
+											 tab-width 4
+											 indent-tabs-mode t))
+
 (use-package go-mode
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
+
+(use-package go-tag)
+
+(use-package gorepl-mode)
 
 (use-package js2-mode
   :mode "\\.m?jsm?\\'"
@@ -78,6 +87,10 @@
   (interactive)
   (find-file "~/.config/emacs/init.el"))
 
+(defun json-unpretty-print-buffer ()
+  (interactive)
+  (json-pretty-print-buffer t))
+
 (require 'sql)
 
 (use-package evil
@@ -105,7 +118,21 @@
   (define-key evil-normal-state-map " gch" 'magit-checkout)
   (define-key evil-normal-state-map " ghl" 'git-link)
   (define-key evil-visual-state-map " ghl" 'git-link)
-  (define-key evil-normal-state-map " ec" 'edit-emacs-config))
+  (define-key evil-normal-state-map " ec" 'edit-emacs-config)
+  (define-key evil-normal-state-map " sm" 'sql-mysql)
+  (define-key evil-normal-state-map " sp" 'sql-postgres)
+  (define-key evil-normal-state-map " sc" 'sql-connect)
+  (define-key evil-normal-state-map " ss" 'sql-save-connection)
+  (define-key evil-normal-state-map " t" 'go-tag-add)
+  (define-key evil-normal-state-map " T" 'go-tag-remove)
+  (define-key evil-normal-state-map " k" 'kubernetes-overview)
+
+  (evil-define-key 'normal js-mode-map " p" 'json-pretty-print-buffer)
+  (evil-define-key 'normal js-mode-map " P" 'json-unpretty-print-buffer)
+  )
+
+(use-package kubernetes)
+(use-package kubernetes-evil)
 
 (use-package smartparens
   :config
@@ -118,6 +145,11 @@
 (use-package evil-collection
   :config
   (evil-collection-init))
+
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 
 (setq auto-revert-check-vc-info t)
 (setq auto-revert-interval 60)
