@@ -35,12 +35,6 @@ alias C='nvim "+set nonu" -R'
 alias pd='pushd'
 alias p='popd'
 
-alias c-tt='gcloud config set project teltech-1335'
-alias c-rk='gcloud config set project robokiller-146813'
-alias c-cc='gcloud config set project nrcc-2017'
-alias c-cf='gcloud config set project confide-android'
-alias ca='gcloud app'
-
 alias k='kubectl'
 alias kc='k config use-context'
 alias kcg='k config get-contexts'
@@ -49,32 +43,6 @@ alias kp='k get pods'
 alias pods='k get pods'
 alias kl='k logs'
 alias krs='k rollout status deploy'
-
-# databases
-CSQL=/run/cloudsql
-PSQL=/run/cloudsql-pg
-alias db-rk="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-failover robokiller"
-alias db-rk-write="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller robokiller"
-alias db-rks="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-staging robokiller"
-alias db-rkc="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-calls-failover robokiller"
-alias db-rkc-write="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-calls robokiller"
-alias db-tt="mysql -umnakama -S $CSQL/teltech-1335:us-east1:teltech-prod"
-
-# command center
-alias db-ps='mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-pubsub -umnakama warehouse' # pubsub
-alias db-ci='mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-identity -umnakama' # identity
-alias db-aa="mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-audio-anonymizer -umnakama audio-anonymizer" # audio-anonymizer
-alias db-smsf='mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-sms -umnakama fingerprint' # sms-fingerprint
-alias db-cns='psql -h${PSQL}/nrcc-2017:us-east1:nrcc-number-stats stats -U mnakama' # number-stats
-alias db-smsc='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-sms-filter-core -Umnakama sms-filter' # sms-filter-core
-alias db-smsw='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-sms-warehouse -Umnakama sms' # sms-warehouse
-alias db-ml='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-ml-labeling 35.245.21.68 -Umnakama postgres' # ml-labeling
-alias db-cs='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-callback-scraper -Umnakama callback_scraper' # callback-scraper
-alias db-rkl='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-lookup-site -Umnakama rklookup' # rklookup
-
-# confide
-alias db-cf='mysql -umatthew.nakama -S $CSQL/confide-android:us-east1:konfide-production konfide'
-alias db-cfs="mysql -umatthew.nakama -S $CSQL/confide-android:us-east1:konfide-staging konfide"
 
 alias g='git'
 alias gb='git branch'
