@@ -65,6 +65,7 @@ if [[ -f ~/.config/zsh/gcloud ]]; then
 fi
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  export XAUTHORITY=/run/user/1000/xauthority
   exec sx
 fi
 

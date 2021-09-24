@@ -38,6 +38,7 @@ alias p='popd'
 alias c-tt='gcloud config set project teltech-1335'
 alias c-rk='gcloud config set project robokiller-146813'
 alias c-cc='gcloud config set project nrcc-2017'
+alias c-cf='gcloud config set project confide-android'
 alias ca='gcloud app'
 
 alias k='kubectl'
@@ -47,27 +48,33 @@ alias kcmv='k config rename-context'
 alias kp='k get pods'
 alias pods='k get pods'
 alias kl='k logs'
+alias krs='k rollout status deploy'
 
 # databases
-CSQL=/var/run/cloudsql
+CSQL=/run/cloudsql
+PSQL=/run/cloudsql-pg
 alias db-rk="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-failover robokiller"
-alias db-rk-write="mysql --safe-updates -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller robokiller"
-alias db-rks="mysql --safe-updates -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-staging robokiller"
+alias db-rk-write="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller robokiller"
+alias db-rks="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-staging robokiller"
 alias db-rkc="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-calls-failover robokiller"
-alias db-rkc-write="mysql --safe-updates -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-calls robokiller"
-alias db-tt="mysql --safe-updates -umnakama -S $CSQL/teltech-1335:us-east1:teltech-prod"
+alias db-rkc-write="mysql -umnakama -S $CSQL/robokiller-146813:us-east1:robokiller-calls robokiller"
+alias db-tt="mysql -umnakama -S $CSQL/teltech-1335:us-east1:teltech-prod"
 
 # command center
-alias db-ps='mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-pubsub -umnakama warehouse' # pubsub
-alias db-ci='mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-identity -umnakama' # identity
-alias db-aa="mysql --safe-updates -S ${CSQL}/nrcc-2017:us-east4:nrcc-audio-anonymizer -umnakama audio-anonymizer" # audio-anonymizer
-alias db-cns='psql -h35.227.111.77 stats -U mnakama' # number-stats
-alias db-sms='psql -h35.245.94.51 -Umnakama sms' # sms-filter
-alias db-smsr='psql -h34.86.29.239 -Umnakama sms' # sms-filter
+alias db-ps='mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-pubsub -umnakama warehouse' # pubsub
+alias db-ci='mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-identity -umnakama' # identity
+alias db-aa="mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-audio-anonymizer -umnakama audio-anonymizer" # audio-anonymizer
 alias db-smsf='mysql -S ${CSQL}/nrcc-2017:us-east4:nrcc-sms -umnakama fingerprint' # sms-fingerprint
-alias db-ml='psql -h35.245.21.68 -Umnakama postgres' # ml-labeling
-alias db-cs='psql -h35.236.235.190 -Umnakama callback_scraper' # callback-scraper
-alias db-rkl='psql -h34.86.172.37 -Umnakama rklookup' # rklookup
+alias db-cns='psql -h${PSQL}/nrcc-2017:us-east1:nrcc-number-stats stats -U mnakama' # number-stats
+alias db-smsc='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-sms-filter-core -Umnakama sms-filter' # sms-filter-core
+alias db-smsw='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-sms-warehouse -Umnakama sms' # sms-warehouse
+alias db-ml='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-ml-labeling 35.245.21.68 -Umnakama postgres' # ml-labeling
+alias db-cs='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-callback-scraper -Umnakama callback_scraper' # callback-scraper
+alias db-rkl='psql -h${PSQL}/nrcc-2017:us-east4:nrcc-lookup-site -Umnakama rklookup' # rklookup
+
+# confide
+alias db-cf='mysql -umatthew.nakama -S $CSQL/confide-android:us-east1:konfide-production konfide'
+alias db-cfs="mysql -umatthew.nakama -S $CSQL/confide-android:us-east1:konfide-staging konfide"
 
 alias g='git'
 alias gb='git branch'
@@ -103,10 +110,19 @@ alias dp='docker ps'
 alias dps='docker ps -a'
 alias dclean='docker system prune --volumes -fa'
 
+alias lt='go test ./...'
+alias lti='go test ./... -tags=integration count=1'
+alias lb='go build'
+alias lr='go run .'
+
 alias cbf='gcloud builds log --stream `gcloud builds list --ongoing --limit=1 | tail -1|cut -f1 -d" "`'
 alias cbff='gcloud builds log --stream `gcloud builds list --limit=1 | tail -1|cut -f1 -d" "`'
 alias cb='gcloud builds log --stream'
 alias cbl='gcloud builds list --limit 10'
+
+alias ccl='gcloud compute ssl-certificates list'
+alias ccd='gcloud compute ssl-certificates delete'
+alias cil='gcloud compute addresses list'
 
 alias abcde='abcde -P -c $HOME/.config/abcde.conf'
 alias wnas='wol d0:50:99:7d:59:c0'
@@ -133,7 +149,6 @@ alias mt='mount | column -t'
 alias xrecord='ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -qscale 9 /tmp/out.mpg'
 
 # Games
-alias nes='pushd /mnt/windows/Users/Public/Games/roms/nes; fceux & popd'
 alias steam='echo you mean steam-native'
 alias glhack='glhack --mode 1600x900'
 alias nestv="DISPLAY=:0.1 SDL_AUDIODRIVER=alsa AUDIODEV=hdmi fceux"
@@ -145,3 +160,9 @@ alias darkforces='dosbox "/media/windows/Program Files (x86)/Steam/SteamApps/com
 
 # linux head tracking
 alias ltrack='ltr_pipe --format-uinput-abs --output-file=/dev/uinput'
+
+# https://stackoverflow.com/questions/42635253/display-received-cert-with-curl
+function seecert () {
+  nslookup $1
+  (openssl s_client -showcerts -servername $1 -connect $1:443 <<< "Q" | openssl x509 -text | grep -iA2 "Validity")
+}

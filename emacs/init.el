@@ -34,9 +34,12 @@
 ;(telephone-line-separator-clear-cache telephone-line-abs-left)
 
 
-(if (equal (system-name) "beast")
+(if (or (equal (system-name) "beast")
+	    (equal (system-name) "mnakama-arch"))
   (set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true" nil t)
-(set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t))
+(if (equal (system-name) "mattdesktop")
+  (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t)))
+
 
 (add-hook 'c-mode-common-hook (setq-default c-basic-offset 4
 											 tab-width 4
