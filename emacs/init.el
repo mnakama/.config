@@ -4,7 +4,7 @@
 
 (global-display-line-numbers-mode t)
 
-(setq show-paren-delay 0)
+(defvar show-paren-delay 0)
 (show-paren-mode t)
 (setq-default tab-width 4)
 (setq-default sgml-basic-offset 4)
@@ -144,7 +144,6 @@
   :hook (prog-mode . smartparens-mode))
 
 (use-package magit)
-(use-package evil-magit)
 (use-package evil-collection
   :config
   (evil-collection-init))
@@ -189,8 +188,7 @@
 
 (use-package ivy-posframe
   :config
-  (setq ivy-display-function #'ivy-posframe-display-at-frame-bottom-left)
-  (ivy-posframe-enable))
+  (defvar ivy-display-function #'ivy-posframe-display-at-frame-bottom-left))
 
 ;(global-set-key "\M-x" 'execute-extended-command)
 
