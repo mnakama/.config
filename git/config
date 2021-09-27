@@ -1,0 +1,6 @@
+[includeIf "gitdir:~/ax/"]
+  path = ./config-ax
+[includeIf "gitdir:~/projects/"]
+  path = ./config-personal
+[includeIf "gitdir:~/.config/"]
+  path = ./config-personal

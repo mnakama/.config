@@ -1,6 +1,11 @@
 EDITOR='nvim'
+UNAME=`uname`
 
-alias ls='ls --color=auto -N'
+if [[ $UNAME = 'Darwin' ]]; then
+	alias ls='ls -G'
+else
+	alias ls='ls --color=auto -N'
+fi
 alias grep='grep --color=auto'
 alias vixb='vi ~/.config/X/xbindkeysrc && killall xbindkeys && ~/.config/autostart-pre/*xbindkeys'
 alias vial='$EDITOR ~/.config/zsh/alias && source ~/.config/zsh/alias'

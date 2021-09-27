@@ -10,6 +10,11 @@
 (setq-default sgml-basic-offset 4)
 (setq inhibit-splash-screen t)
 
+(if (string-equal system-type "darwin")
+  (add-to-list 'default-frame-alist '(fullscreen . maximized)) ;maximize/"zoom"
+  ;(add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;full-screen
+)
+
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 (require 'use-package)
@@ -37,8 +42,11 @@
 (if (or (equal (system-name) "beast")
 	    (equal (system-name) "mnakama-arch"))
   (set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true" nil t)
-(if (equal (system-name) "mattdesktop")
-  (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t)))
+  (if (equal (system-name) "mattdesktop")
+    (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t))
+  (if (equal (system-name) "mnakama-MBPro")
+    (set-face-attribute 'default nil :height 190))
+)
 
 
 (add-hook 'c-mode-common-hook (setq-default c-basic-offset 4

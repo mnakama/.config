@@ -1,16 +1,15 @@
 [user]
-	email = matt+git@mattnakama.com
+	email = matthew.nakama@automox.com
 	name = Matt Nakama
-	signingkey = 21050986B2E83B8A
 [url "git@github.com:"]
 	insteadof = https://github.com/
 [github]
-	user = mnakama
+	user = ax-mnakama
 [pull]
-	rebase = true
+	ff = only
 [advice]
 	addIgnoredFile = false
 [commit]
-	gpgSign = true
+	gpgSign = false
 [init]
-	defaultBranch = master
+	defaultBranch = main

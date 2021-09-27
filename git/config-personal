@@ -1,0 +1,16 @@
+[user]
+	email = matt+git@mattnakama.com
+	name = Matt Nakama
+	signingkey = 21050986B2E83B8A
+[url "git@github.com:"]
+	insteadof = https://github.com/
+[github]
+	user = mnakama
+[pull]
+	ff = only
+[advice]
+	addIgnoredFile = false
+[commit]
+	gpgSign = true
+[init]
+	defaultBranch = master
