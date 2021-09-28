@@ -104,8 +104,15 @@
 
 (require 'sql)
 
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode t))
+
 (use-package evil
-  :init (setq evil-want-keybinding nil)
+  :after undo-tree
+  :init
+  (setq evil-want-keybinding nil)
+  (setq evil-undo-system 'undo-tree)
   :config
   (evil-mode t)
   ; missing vim keybinds
@@ -140,6 +147,8 @@
 
   (evil-define-key 'normal js-mode-map " p" 'json-pretty-print-buffer)
   (evil-define-key 'normal js-mode-map " P" 'json-unpretty-print-buffer)
+
+  (add-hook 'evil-local-mode-hook 'turn-on-undo-tree-mode)
   )
 
 (use-package kubernetes)
