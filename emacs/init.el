@@ -53,6 +53,9 @@
 											 tab-width 4
 											 indent-tabs-mode t))
 
+(use-package yaml-mode
+  :mode "\\.yaml\\'")
+
 (use-package go-mode
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
