@@ -60,7 +60,8 @@
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
 
-(use-package go-tag)
+(use-package go-tag
+  :mode "\\.go\\'")
 
 (use-package gorepl-mode)
 
@@ -164,6 +165,8 @@
   :hook (prog-mode . smartparens-mode))
 
 (use-package magit)
+(use-package git-link)
+
 (use-package evil-collection
   :config
   (evil-collection-init))
