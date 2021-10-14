@@ -9,10 +9,11 @@
 (setq-default tab-width 4)
 (setq-default sgml-basic-offset 4)
 (setq inhibit-splash-screen t)
+(blink-cursor-mode 0)
 
 (if (string-equal system-type "darwin")
-  (add-to-list 'default-frame-alist '(fullscreen . maximized)) ;maximize/"zoom"
-  ;(add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;full-screen
+  ;(add-to-list 'default-frame-alist '(fullscreen . maximized)) ;maximize/"zoom"
+  (add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;full-screen
 )
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
