@@ -3,6 +3,8 @@
 ;;; Code:
 
 (global-display-line-numbers-mode t)
+(setq-default display-line-numbers-grow-only t)
+(setq-default display-line-numbers-width 3)
 
 (defvar show-paren-delay 0)
 (show-paren-mode t)
@@ -14,6 +16,7 @@
 (if (string-equal system-type "darwin")
   ;(add-to-list 'default-frame-alist '(fullscreen . maximized)) ;maximize/"zoom"
   (add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;full-screen
+  (setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
 )
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
@@ -57,12 +60,23 @@
 (use-package yaml-mode
   :mode "\\.yaml\\'")
 
+(use-package adoc-mode
+  :mode "\\.adoc\\'")
+
 (use-package go-mode
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
 
-(use-package go-tag
-  :mode "\\.go\\'")
+;(use-package elpy
+;  :defer t
+;  :init
+;  (advice-add 'python-mode :before 'elpy-enable)
+;  :mode "\\.py\\'")
+
+(defvar py-python-command "python3")
+(defvar python-shell-interpreter "python3")
+
+(use-package go-tag)
 
 (use-package gorepl-mode)
 
