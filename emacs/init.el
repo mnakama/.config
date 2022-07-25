@@ -86,6 +86,8 @@
   (add-to-list 'auto-mode-alist '("\\.m?jsm?\\'" . js2-mode))
   (add-hook 'js2-mode-hook 'flow-minor-enable-automatically))
 
+(use-package nix-mode
+  :mode "\\.nix\\'")
 
 (use-package flycheck
   :config (global-flycheck-mode))
