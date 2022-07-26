@@ -28,7 +28,7 @@
       grep = "grep --color=auto";
       vixb = "vi ~/.config/X/xbindkeysrc && killall xbindkeys && ~/.config/autostart-pre/*xbindkeys";
       vial = "$EDITOR ~/.config/zsh/alias && source ~/.config/zsh/alias";
-      vihk = "cd ~/projects/xhotkey && $EDITOR xhotkey.c && make && killall xhotkey; cd && ~/projects/xhotkey/xhotkey &!";
+      vihk = "cd ~/projects/xhotkey && $EDITOR xhotkey.c && make && systemctl --user restart xhotkey";
       bl = ''pls sh -c "cat > /sys/class/backlight/intel_backlight/brightness"'';
 
       jl=''~/tt/logParse.py'';
@@ -38,7 +38,7 @@
       pacs=''pacman -Ss --color=always'';
       pacu=''super pacman -Syu'';
       pacget=''curl -L -O https://aur.archlinux.org/cgit/aur.git/snapshot/package_name.tar.gz'';
-      pacorph=''super pacman -R `pacman -Qdtq`'';
+      pacorph=''super pacman -R $(pacman -Qdtq)'';
       s=''super'';
       u=''suid'';
       d=''pls'';
@@ -107,8 +107,8 @@
       lb=''go build'';
       lr=''go run .'';
 
-      cbf=''gcloud builds log --stream `gcloud builds list --ongoing --limit=1 | tail -1|cut -f1 -d" "`'';
-      cbff=''gcloud builds log --stream `gcloud builds list --limit=1 | tail -1|cut -f1 -d" "`'';
+      cbf=''gcloud builds log --stream $(gcloud builds list --ongoing --limit=1 | tail -1|cut -f1 -d" ")'';
+      cbff=''gcloud builds log --stream $(gcloud builds list --limit=1 | tail -1|cut -f1 -d" ")'';
       cb=''gcloud builds log --stream'';
       cbl=''gcloud builds list --limit 10'';
 
@@ -337,6 +337,7 @@
     pkgs.element-desktop
     pkgs.emacs
     pkgs.epdfview
+    pkgs.feh
     pkgs.firefox
     pkgs.gnupg
     pkgs.handbrake
