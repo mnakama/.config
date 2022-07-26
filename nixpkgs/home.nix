@@ -317,14 +317,14 @@
 
   home.packages = [
     pkgs.abcde
-    pkgs.aspell
-    pkgs.aspellDicts.en
-    pkgs.aspellDicts.en-computers
     pkgs.alacritty
     pkgs.alsa-utils
     pkgs.amfora
     pkgs.ansible
     pkgs.asciidoctor
+    pkgs.aspell
+    pkgs.aspellDicts.en
+    pkgs.aspellDicts.en-computers
     pkgs.audacious
     pkgs.audacity
     pkgs.beep
@@ -351,8 +351,8 @@
     pkgs.mpv
     pkgs.neovim
     pkgs.nmap
-    pkgs.pavucontrol
     pkgs.p7zip
+    pkgs.pavucontrol
     pkgs.picom
     pkgs.pv
     pkgs.pwgen
