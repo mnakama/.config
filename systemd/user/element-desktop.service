@@ -1,0 +1,12 @@
+[Install]
+WantedBy=graphical-session.target
+
+[Service]
+Environment="XAUTHORITY=/run/user/1000/xauthority"
+ExecStart=/home/matt/.nix-profile/bin/element-desktop --hidden
+Restart=on-failure
+RestartSec=3
+
+[Unit]
+After=graphical-session-pre.target
+PartOf=graphical-session.target

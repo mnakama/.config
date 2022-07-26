@@ -1,0 +1,13 @@
+[Install]
+WantedBy=graphical-session.target
+
+[Service]
+Environment="XAUTHORITY=/run/user/1000/xauthority"
+Type=forking
+ExecStart=aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log
+Restart=on-failure
+RestartSec=3
+
+[Unit]
+After=graphical-session-pre.target
+PartOf=graphical-session.target

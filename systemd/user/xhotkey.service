@@ -1,0 +1,14 @@
+[Install]
+WantedBy=graphical-session.target
+
+[Service]
+Environment="XAUTHORITY=/run/user/1000/xauthority"
+ExecStart=/home/matt/projects/xhotkey/xhotkey
+Restart=on-failure
+RestartSec=3
+
+[Unit]
+After=graphical-session-pre.target
+Description=Hotkey listener
+Documentation=https://github.com/mnakama/xhotkey
+PartOf=graphical-session.target
