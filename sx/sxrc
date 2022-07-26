@@ -7,11 +7,11 @@ if test -f ~/.config/sx/Xresources; then
 	xrdb -merge ~/.config/sx/Xresources
 fi
 
-HOST=`hostname`
+HOST=`hostnamectl hostname`
 if [ $HOST = 'beast' ]; then
-	RAZER_ID=`xinput list --id-only 'pointer:Razer Razer Taipan'`
+	MOUSE_ID=`xinput list --id-only 'pointer:SteelSeries SteelSeries Rival 600'`
 	ACCEL=0.15
-	xinput set-float-prop $RAZER_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
+	xinput set-float-prop $MOUSE_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
 fi
 
 systemctl --user import-environment DISPLAY
@@ -25,4 +25,6 @@ for file in `ls -1 ~/.config/autostart-bin`; do
   ~/.config/autostart-bin/$file &
 done
 
-exec ~/bin/dwm
+while true; do
+	~/bin/dwm
+done

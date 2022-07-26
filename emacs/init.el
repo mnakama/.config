@@ -19,7 +19,7 @@
   (setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
 )
 
-(add-hook 'before-save-hook #'delete-trailing-whitespace)
+;(add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 (require 'use-package)
 (require 'use-package-ensure)
@@ -78,7 +78,7 @@
 
 (use-package go-tag)
 
-(use-package gorepl-mode)
+;(use-package gorepl-mode)
 
 (use-package js2-mode
   :mode "\\.m?jsm?\\'"
@@ -153,6 +153,7 @@
   (define-key evil-normal-state-map " gd" 'magit-diff-unstaged)
   (define-key evil-normal-state-map " gD" 'magit-diff-staged)
   (define-key evil-normal-state-map " gw" 'magit-diff-working-tree)
+  (define-key evil-normal-state-map " gr" 'magit-run)
   (define-key evil-normal-state-map " gco" 'magit-commit)
   (define-key evil-normal-state-map " gch" 'magit-checkout)
   (define-key evil-normal-state-map " ghl" 'git-link)
