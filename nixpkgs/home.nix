@@ -346,6 +346,7 @@
     pkgs.iftop
     pkgs.inkscape
     pkgs.iotop
+    pkgs.kubectl
     pkgs.mosh
     pkgs.mpd
     pkgs.mpv
