@@ -2,7 +2,6 @@
 WantedBy=graphical-session.target
 
 [Service]
-Environment="XAUTHORITY=/run/user/1000/xauthority"
 ExecStart=/home/matt/projects/suckless/dwmstatus/dwmstatus
 Restart=on-failure
 RestartSec=3

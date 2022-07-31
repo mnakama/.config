@@ -2,7 +2,6 @@
 WantedBy=graphical-session.target
 
 [Service]
-Environment="XAUTHORITY=/run/user/1000/xauthority"
 ExecStart=/home/matt/projects/xhotkey/xhotkey
 Restart=on-failure
 RestartSec=3

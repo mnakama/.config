@@ -14,7 +14,7 @@ if [ $HOST = 'beast' ]; then
 	xinput set-float-prop $MOUSE_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
 fi
 
-systemctl --user import-environment DISPLAY
+systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AGENT_PID
 
 # no cd; should keep current working directory as $HOME
 for file in `ls -1 ~/.config/autostart-pre`; do
@@ -25,6 +25,9 @@ for file in `ls -1 ~/.config/autostart-bin`; do
   ~/.config/autostart-bin/$file &
 done
 
-while true; do
-	~/bin/dwm
-done
+systemctl --user start dwm.target
+systemctl --user --wait start dwm.service
+#while true; do
+#	~/bin/dwm
+#done
+systemctl --user stop dwm.target

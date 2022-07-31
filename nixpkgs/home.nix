@@ -17,7 +17,7 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      VISUAL = "/usr/bin/nvim";
+      VISUAL = "/home/matt/.nix-profile/bin/nvim";
       GOPRIVATE = "github.com/teltech";
       MPD_HOST = "$XDG_RUNTIME_DIR/mpd/socket";
       #PULSE_SOURCE = 2;
@@ -237,6 +237,9 @@
   systemd.user = {
     startServices = "legacy";
     systemctlPath = "/usr/bin/systemctl";
+    sessionVariables = {
+      XAUTHORITY = "/run/user/1000/xauthority";
+    };
   };
 
   services = {
@@ -369,6 +372,7 @@
     pkgs.unzip
     pkgs.vlc
     pkgs.webfs
+    pkgs.whois
     pkgs.wireshark-qt
     pkgs.wol
     pkgs.x11vnc
