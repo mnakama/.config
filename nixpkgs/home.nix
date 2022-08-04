@@ -26,13 +26,10 @@
 
     shellAliases = {
       grep = "grep --color=auto";
-      vixb = "vi ~/.config/X/xbindkeysrc && killall xbindkeys && ~/.config/autostart-pre/*xbindkeys";
+      vixb = "$EDITOR ~/.config/X/xbindkeysrc && killall xbindkeys && ~/.config/autostart-pre/*xbindkeys";
       vial = "$EDITOR ~/.config/zsh/alias && source ~/.config/zsh/alias";
       vihk = "cd ~/projects/xhotkey && $EDITOR xhotkey.c && make && systemctl --user restart xhotkey";
       bl = ''pls sh -c "cat > /sys/class/backlight/intel_backlight/brightness"'';
-
-      jl=''~/tt/logParse.py'';
-      js=''js60'';
 
       pac=''super pacman'';
       pacs=''pacman -Ss --color=always'';
@@ -44,13 +41,13 @@
       d=''pls'';
       v=''nvim'';
       e=''emacs'';
-      ns=''netstat -n'';
       start=''super systemctl start'';
       stop=''super systemctl stop'';
       restart=''super systemctl restart'';
       sstatus=''super systemctl status'';
 
       rip=''ssh fc00::1 -p 26 "ip ad show dev eth0 |egrep -o ''\''''inet [0-9.]+''\''''|cut -d''\'''' ''\'''' -f2 |tr -d \"\n\"" 2>/dev/null'';
+      wip="curl -o - http://wtfismyip.com/text";
 
       o=''ls'';
       oo=''ls -lh'';
@@ -127,15 +124,6 @@
       rd11=''rdesktop -x lan -a 16 -N -K -k en-dv -g 1488x881'';
 
       windows=''nice qemu-kvm -soundhw sb16 -m 128 -localtime -usbdevice tablet -net nic,model=rtl8139 -net user -monitor stdio'';
-
-      wpa=''super wpa_supplicant -B -i wlp3s0 -c'';
-      wpaa=''wpa /etc/wpa_supplicant/all'';
-      wpah=''wpa /etc/wpa_supplicant/Nakama50'';
-      wpaw=''wpa /etc/wpa_supplicant/TelTech'';
-      dhcp=''super dhcpcd -A wlp3s0'';
-
-      pom=''pomodoro-start'';
-      poms=''pomodoro-stop'';
 
       mt=''mount | column -t'';
       xrecord=''ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -qscale 9 /tmp/out.mpg'';
