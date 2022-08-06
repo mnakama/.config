@@ -153,7 +153,7 @@
       enableSyntaxHighlighting = true;
       enableVteIntegration = true;
       defaultKeymap = "viins";
-      autocd = false;
+      autocd = true;
       history = {
         ignoreDups = true;
         ignoreSpace = true;
@@ -355,6 +355,7 @@
     pkgs.strace
     pkgs.stunnel
     pkgs.tcpdump
+    #pkgs.tdesktop # doesn't work in archlinux because GLX
     pkgs.tigervnc
     pkgs.unrar
     pkgs.unzip
