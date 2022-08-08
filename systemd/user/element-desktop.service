@@ -2,7 +2,7 @@
 WantedBy=graphical-session.target
 
 [Service]
-ExecStart=/home/matt/.nix-profile/bin/element-desktop --hidden
+ExecStart=/home/matt/.nix-profile/bin/nixGL /home/matt/.nix-profile/bin/element-desktop --hidden
 Restart=on-failure
 RestartSec=3
 

@@ -330,6 +330,7 @@
     pkgs.epdfview
     pkgs.feh
     pkgs.firefox
+    pkgs.gimp
     pkgs.gnupg
     pkgs.handbrake
     pkgs.htop
@@ -341,6 +342,7 @@
     pkgs.mosh
     pkgs.mpd
     pkgs.mpv
+    pkgs.mumble
     pkgs.neovim
     pkgs.nmap
     pkgs.p7zip
@@ -355,7 +357,7 @@
     pkgs.strace
     pkgs.stunnel
     pkgs.tcpdump
-    #pkgs.tdesktop # doesn't work in archlinux because GLX
+    pkgs.tdesktop # needs nixGL
     pkgs.tigervnc
     pkgs.unrar
     pkgs.unzip
