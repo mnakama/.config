@@ -31,3 +31,4 @@ systemctl --user --wait start dwm.service
 #	~/bin/dwm
 #done
 systemctl --user stop dwm.target
+systemctl --user stop graphical-session.target

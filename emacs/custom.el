@@ -106,6 +106,7 @@
 	 (340 . "#ffeead")
 	 (360 . "#d1f1a9")))
  '(vc-annotate-very-old-color nil)
+ '(warning-suppress-types '((auto-save)))
  '(weechat-color-list
    '(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83"))
  '(xterm-color-names
