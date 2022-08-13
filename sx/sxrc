@@ -14,7 +14,7 @@ if [ $HOST = 'beast' ]; then
 	xinput set-float-prop $MOUSE_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
 fi
 
-systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AGENT_PID
+systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AGENT_PID PASSWORD_STORE_DIR
 
 # no cd; should keep current working directory as $HOME
 for file in `ls -1 ~/.config/autostart-pre`; do
