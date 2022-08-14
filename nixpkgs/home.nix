@@ -368,6 +368,7 @@
     pkgs.wol
     pkgs.x11vnc
     pkgs.xbanish
+    pkgs.xclip
     pkgs.xdotool
     pkgs.yt-dlp
     pkgs.zbar

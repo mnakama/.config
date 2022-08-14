@@ -5,6 +5,7 @@ WantedBy=graphical-session.target
 ExecStart=/home/matt/projects/xhotkey/xhotkey
 Restart=on-failure
 RestartSec=3
+KillMode=process
 
 [Unit]
 After=graphical-session-pre.target
