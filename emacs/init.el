@@ -52,10 +52,19 @@
     (set-face-attribute 'default nil :height 190))
 )
 
+(when (eq window-system 'w32)
+  (setq-default tramp-default-method "sshx"))
 
 (add-hook 'c-mode-common-hook (setq-default c-basic-offset 4
 											 tab-width 4
 											 indent-tabs-mode t))
+
+(use-package request)
+
+(use-package jq-mode)
+(use-package restclient
+  :config
+  (add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode)))
 
 (use-package yaml-mode
   :mode "\\.yaml\\'")
