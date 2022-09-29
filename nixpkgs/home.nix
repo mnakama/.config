@@ -323,7 +323,7 @@
     pkgs.cdparanoia
     pkgs.claws-mail
     pkgs.dia
-    pkgs.discord
+    #pkgs.discord
     pkgs.dmenu
     pkgs.element-desktop
     pkgs.emacs
