@@ -3,23 +3,30 @@
 ;;; Code:
 
 (global-display-line-numbers-mode t)
-(setq-default display-line-numbers-grow-only t)
-(setq-default display-line-numbers-width 3)
+(setq-default display-line-numbers-grow-only t
+			  display-line-numbers-width 3)
 
 (defvar show-paren-delay 0)
 (show-paren-mode t)
-(setq-default tab-width 4)
-(setq-default sgml-basic-offset 4)
+(setq-default tab-width 4
+			  sgml-basic-offset 4)
 (setq inhibit-splash-screen t)
 (blink-cursor-mode 0)
 
-(if (string-equal system-type "darwin")
+(setq-default buffer-file-coding-system 'utf-8-unix)
+
+(when (eq window-system 'ns)
   ;(add-to-list 'default-frame-alist '(fullscreen . maximized)) ;maximize/"zoom"
   (add-hook 'window-setup-hook 'toggle-frame-fullscreen t) ;full-screen
   (setenv "PATH" (concat "/usr/local/bin" ":" (getenv "PATH")))
 )
+(when (eq window-system 'w32)
+  (add-hook 'window-setup-hook 'toggle-frame-maximized)
+  (setq-default tramp-default-method "sshx"))
 
 ;(add-hook 'before-save-hook #'delete-trailing-whitespace)
+
+;(add-to-list 'load-path "~/.config/emacs/lisp")
 
 (require 'use-package)
 (require 'use-package-ensure)
@@ -52,9 +59,6 @@
     (set-face-attribute 'default nil :height 190))
 )
 
-(when (eq window-system 'w32)
-  (setq-default tramp-default-method "sshx"))
-
 (add-hook 'c-mode-common-hook (setq-default c-basic-offset 4
 											 tab-width 4
 											 indent-tabs-mode t))
@@ -76,23 +80,21 @@
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save))
 
-;(use-package elpy
-;  :defer t
-;  :init
-;  (advice-add 'python-mode :before 'elpy-enable)
-;  :mode "\\.py\\'")
+(use-package elpy
+  :defer t
+  :init (advice-add 'python-mode :before 'elpy-enable))
 
-(defvar py-python-command "python3")
-(defvar python-shell-interpreter "python3")
+(setq py-python-command "python"
+	  python-shell-interpreter "python")
 
-(use-package go-tag)
+(use-package go-tag
+  :after go-mode)
 
 ;(use-package gorepl-mode)
 
 (use-package js2-mode
   :mode "\\.m?jsm?\\'"
   :config
-  (add-to-list 'auto-mode-alist '("\\.m?jsm?\\'" . js2-mode))
   (add-hook 'js2-mode-hook 'flow-minor-enable-automatically))
 
 (use-package nix-mode
@@ -102,7 +104,7 @@
   :config (global-flycheck-mode))
 
 (use-package flycheck-flow
-  :after flycheck
+  :after flycheck js2-mode
   :config
   (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
   (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
@@ -118,7 +120,8 @@
   :config
   (yas-global-mode 1))
 
-(use-package go-snippets)
+(use-package go-snippets
+  :after go-mode)
 
 (defun show-buffer-path ()
   (interactive)
@@ -183,7 +186,8 @@
   )
 
 (use-package kubernetes)
-(use-package kubernetes-evil)
+(use-package kubernetes-evil
+  :after kubernetes evil)
 
 (use-package smartparens
   :config
@@ -195,10 +199,12 @@
 (use-package git-link)
 
 (use-package evil-collection
+  :after evil
   :config
   (evil-collection-init))
 
 (use-package evil-surround
+  :after evil
   :ensure t
   :config
   (global-evil-surround-mode 1))
