@@ -93,9 +93,7 @@
 ;(use-package gorepl-mode)
 
 (use-package js2-mode
-  :mode "\\.m?jsm?\\'"
-  :config
-  (add-hook 'js2-mode-hook 'flow-minor-enable-automatically))
+  :mode "\\.m?jsm?\\'")
 
 (use-package nix-mode
   :mode "\\.nix\\'")

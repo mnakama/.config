@@ -3,7 +3,7 @@ WantedBy=graphical-session.target
 
 [Service]
 WorkingDirectory=/home/matt/projects/flexim-go
-ExecStart=/home/matt/projects/flexim-go/irc-client -c /home/matt/.config/flexim/irc-vps.yaml
+ExecStart=/home/matt/projects/flexim-go/irc-client -c /home/matt/.config/flexim/irc-nas.yaml
 Restart=on-failure
 RestartSec=3
 

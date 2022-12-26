@@ -16,13 +16,21 @@ fi
 
 systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AGENT_PID PASSWORD_STORE_DIR
 
+# https://wiki.archlinux.org/title/Xorg#Display_size_and_DPI
+# choose one of:
+#  96 (100%)
+# 120 (125%)
+# 144 (150%)
+# 168 (175%)
+# 192 (200%)
+xrandr --dpi 144
 # no cd; should keep current working directory as $HOME
-for file in `ls -1 ~/.config/autostart-pre`; do
-  ~/.config/autostart-pre/$file
+for file in ~/.config/autostart-pre/*; do
+  $file
 done
 
-for file in `ls -1 ~/.config/autostart-bin`; do
-  ~/.config/autostart-bin/$file &
+for file in ~/.config/autostart-bin/*; do
+  $file &
 done
 
 systemctl --user start dwm.target
