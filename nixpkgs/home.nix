@@ -17,11 +17,9 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      VISUAL = "/home/matt/.nix-profile/bin/nvim";
+      VISUAL = "/etc/profiles/per-user/matt/bin/nvim";
       GOPRIVATE = "github.com/teltech";
       MPD_HOST = "$XDG_RUNTIME_DIR/mpd/socket";
-      #PULSE_SOURCE = 2;
-      #NIX_PATH = ''$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}''
     };
 
     shellAliases = {
@@ -224,7 +222,6 @@
 
   systemd.user = {
     startServices = "legacy";
-    systemctlPath = "/usr/bin/systemctl";
     sessionVariables = {
       XAUTHORITY = "/run/user/1000/xauthority";
     };
@@ -296,7 +293,6 @@
 
     gpg-agent = {
       enable = true;
-      #enableZshIntegration = true;
     };
 
     redshift = {
@@ -306,78 +302,70 @@
     };
   };
 
-  home.packages = [
-    pkgs.abcde
-    pkgs.alacritty
-    pkgs.alsa-utils
-    pkgs.amfora
-    pkgs.ansible
-    pkgs.asciidoctor
-    pkgs.aspell
-    pkgs.aspellDicts.en
-    pkgs.aspellDicts.en-computers
-    pkgs.audacious
-    pkgs.audacity
-    pkgs.beep
-    pkgs.calibre
-    pkgs.cdparanoia
-    pkgs.claws-mail
-    pkgs.dia
-    #pkgs.discord
-    pkgs.dmenu
-    pkgs.element-desktop
-    pkgs.emacs
-    pkgs.epdfview
-    pkgs.feh
-    pkgs.firefox
-    pkgs.gimp
-    pkgs.gnupg
-    pkgs.handbrake
-    pkgs.htop
-    pkgs.hugo
-    pkgs.iftop
-    pkgs.inkscape
-    pkgs.iotop
-    pkgs.kubectl
-    pkgs.mosh
-    pkgs.mpd
-    pkgs.mpv
-    pkgs.mumble
-    pkgs.neovim
-    pkgs.nmap
-    pkgs.p7zip
-    pkgs.pavucontrol
-    pkgs.picom
-    pkgs.pv
-    pkgs.pwgen
-    pkgs.rocketchat-desktop
-    pkgs.scrot
-    pkgs.smtube
-    pkgs.spotify
-    pkgs.strace
-    pkgs.stunnel
-    pkgs.tcpdump
-    pkgs.tdesktop # needs nixGL
-    pkgs.tigervnc
-    pkgs.unrar
-    pkgs.unzip
-    pkgs.vlc
-    pkgs.webfs
-    pkgs.whois
-    pkgs.wireshark-qt
-    pkgs.wol
-    pkgs.x11vnc
-    pkgs.xbanish
-    pkgs.xclip
-    pkgs.xdotool
-    pkgs.yt-dlp
-    pkgs.zbar
+  home.packages = with pkgs; [
+    abcde
+    alacritty
+    alsa-utils
+    amfora
+    ansible
+    asciidoctor
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    audacious
+    audacity
+    beep
+    calibre
+    cdparanoia
+    claws-mail
+    dia
+    dmenu
+    element-desktop
+    emacs
+    epdfview
+    feh
+    firefox
+    gimp
+    gnupg
+    handbrake
+    htop
+    hugo
+    iftop
+    inkscape
+    iotop
+    kubectl
+    mosh
+    mpd
+    mpv
+    mumble
+    neovim
+    nmap
+    p7zip
+    pavucontrol
+    picom
+    pv
+    pwgen
+    rocketchat-desktop
+    scrot
+    smtube
+    spotify
+    strace
+    stunnel
+    tcpdump
+    tdesktop # needs nixGL
+    tigervnc
+    unrar
+    unzip
+    vlc
+    webfs
+    whois
+    wireshark-qt
+    wol
+    x11vnc
+    xbanish
+    xclip
+    xdotool
+    yt-dlp
+    zbar
   ];
-    #pkgs.sassc
-    #pkgs.jq
-    #pkgs.ngrok
-    #pkgs.xonotic
-    #pkgs.mpc
-    #pkgs.ansible-core
-    #"pkgs.6tunnel"
 }
