@@ -218,6 +218,66 @@
         init = { defaultBranch = "main"; };
       };
     };
+
+    ssh = {
+      enable = true;
+      controlMaster = "auto";
+      controlPath = "/run/user/1000/ssh_%r@%h:%p";
+      hashKnownHosts = false;
+      extraConfig = ''
+        AddKeysToAgent yes
+      '';
+
+      matchBlocks = {
+        nas = {
+          extraOptions = {
+            PasswordAuthentication = "no";
+            KbdInteractiveAuthentication = "no";
+          };
+        };
+
+        nas-root = {
+          user = "root";
+          extraOptions = {
+            PasswordAuthentication = "no";
+            KbdInteractiveAuthentication = "no";
+          };
+        };
+
+        sexy-arch = {
+          extraOptions = {
+            PasswordAuthentication = "no";
+            KbdInteractiveAuthentication = "no";
+          };
+        };
+
+        router = {
+          port = 26;
+          extraOptions = {
+            PasswordAuthentication = "no";
+            KbdInteractiveAuthentication = "no";
+          };
+        };
+
+        hive-db = {
+          user = "ubuntu";
+          hostname = "k8s-postgres.hive.local";
+          extraOptions = {
+            PasswordAuthentication = "no";
+            KbdInteractiveAuthentication = "no";
+          };
+        };
+
+        devzero = {
+          user = "gnuman";
+          port = 58391;
+          extraOptions = {
+            PasswordAuthentication = "no";
+            KbdInteractiveAuthentication = "no";
+          };
+        };
+      };
+    };
   };
 
   systemd.user = {
