@@ -24,13 +24,15 @@
   (add-hook 'window-setup-hook 'toggle-frame-maximized)
   (setq-default tramp-default-method "sshx"))
 
-;(add-hook 'before-save-hook #'delete-trailing-whitespace)
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;(add-to-list 'load-path "~/.config/emacs/lisp")
 
 (require 'use-package)
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
+
+; only needed on systems without nix/home-manager
+;(require 'use-package-ensure)
+;(setq use-package-always-ensure t)
 
 (use-package dracula-theme)
 

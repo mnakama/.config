@@ -7,6 +7,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home = {
+    stateVersion = "22.11";
 
     sessionPath = [
       "$HOME/bin"
@@ -24,8 +25,8 @@
 
     shellAliases = {
       grep = "grep --color=auto";
-      vixb = "$EDITOR ~/.config/X/xbindkeysrc && killall xbindkeys && ~/.config/autostart-pre/*xbindkeys";
-      vial = "$EDITOR ~/.config/zsh/alias && source ~/.config/zsh/alias";
+      vixb = "$EDITOR ${config.xdg.configHome}/X/xbindkeysrc && killall xbindkeys && ${config.xdg.configHome}/autostart-pre/*xbindkeys";
+      vial = "$EDITOR ${config.xdg.configHome}/zsh/alias && source ${config.xdg.configHome}/zsh/alias";
       vihk = "cd ~/projects/xhotkey && $EDITOR xhotkey.c && make && systemctl --user restart xhotkey";
       bl = ''pls sh -c "cat > /sys/class/backlight/intel_backlight/brightness"'';
 
@@ -111,7 +112,7 @@
       ccd=''gcloud compute ssl-certificates delete'';
       cil=''gcloud compute addresses list'';
 
-      abcde=''abcde -P -c $HOME/.config/abcde.conf'';
+      abcde=''abcde -P -c ${config.xdg.configHome}/abcde.conf'';
       wnas=''wol d0:50:99:7d:59:c0'';
 
       unifi=''docker run --rm --init -p 8880:8880 -p 8080:8080 -p 8443:8443 -p 8843:8843 -p 3478:3478/udp -p 10001:10001/udp -e TZ='America/New_York' -v ~/unifi:/unifi --name unifi jacobalberty/unifi:stable'';
@@ -141,6 +142,43 @@
   };
 
   programs = {
+    emacs = {
+      enable = true;
+      extraPackages = epkgs: with epkgs; [
+        adoc-mode
+        counsel
+        dracula-theme
+        elpy
+        evil
+        evil-collection
+        evil-surround
+        flycheck
+        flycheck-flow
+        git-link
+        go-mode
+        go-snippets
+        go-tag
+        ivy
+        ivy-posframe
+        jq-mode
+        js2-mode
+        kubernetes
+        kubernetes-evil
+        magit
+        nix-mode
+        request
+        restclient
+        smart-tabs-mode
+        smartparens
+        swiper
+        telephone-line
+        undo-tree
+        use-package
+        yaml-mode
+        yasnippet
+      ];
+    };
+
     password-store = {
       enable = true;
       package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
@@ -216,6 +254,14 @@
         pull = { ff = "only"; };
         advice = { addIgnoredFile = false; };
         init = { defaultBranch = "main"; };
+      };
+    };
+
+    mpv = {
+      enable = true;
+      config = {
+        ao = "pipewire";
+        vo = "gpu";
       };
     };
 
@@ -360,6 +406,13 @@
       latitude = 43.0;
       longitude = -74.0;
     };
+
+    password-store-sync = {
+      enable = true;
+      frequency = "*-*-* *:00:00";
+    };
+
+    xscreensaver.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -377,41 +430,27 @@
     beep
     calibre
     cdparanoia
-    claws-mail
     dia
     dmenu
     element-desktop
-    emacs
     epdfview
     feh
-    firefox
     gimp
     gnupg
     handbrake
-    htop
     hugo
-    iftop
     inkscape
-    iotop
     kubectl
     mosh
     mpd
-    mpv
     mumble
-    neovim
-    nmap
     p7zip
     pavucontrol
     picom
     pv
     pwgen
-    rocketchat-desktop
     scrot
-    smtube
     spotify
-    strace
-    stunnel
-    tcpdump
     tdesktop # needs nixGL
     tigervnc
     unrar
