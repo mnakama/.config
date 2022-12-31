@@ -19,11 +19,11 @@
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "/etc/profiles/per-user/matt/bin/nvim";
-      GOPRIVATE = "github.com/teltech";
       MPD_HOST = "$XDG_RUNTIME_DIR/mpd/socket";
     };
 
     shellAliases = {
+      ls = "ls --color=auto -N";
       grep = "grep --color=auto";
       vixb = "$EDITOR ${config.xdg.configHome}/X/xbindkeysrc && killall xbindkeys && ${config.xdg.configHome}/autostart-pre/*xbindkeys";
       vial = "$EDITOR ${config.xdg.configHome}/zsh/alias && source ${config.xdg.configHome}/zsh/alias";
@@ -193,7 +193,7 @@
       history = {
         ignoreDups = true;
         ignoreSpace = true;
-        path = ".histfile";
+        path = "$HOME/.histfile";
         size = 1500;
         save = 1000;
         share = false;
@@ -203,11 +203,8 @@
         UNAME = "`uname`";
         KEYTIMEOUT = 1;
       };
-      envExtra = ''
-      '';
       initExtra = ''
         . ${config.xdg.configHome}/zsh/zshrc
-        . $HOME/projects/etc/z/z.sh
       '';
     };
 
@@ -329,7 +326,7 @@
   systemd.user = {
     startServices = "legacy";
     sessionVariables = {
-      XAUTHORITY = "/run/user/1000/xauthority";
+      XAUTHORITY = "$XDG_RUNTIME_DIR/xauthority";
     };
   };
 

@@ -1,3 +1,8 @@
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  export XAUTHORITY=/run/user/1000/xauthority
+  exec sx
+fi
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete
@@ -6,24 +11,24 @@ zstyle ':completion:*' glob 1
 zstyle ':completion:*' max-errors 1
 zstyle ':completion:*' prompt '%e'
 zstyle ':completion:*' substitute 1
-zstyle :compinstall filename '/home/matt/.zshrc'
+zstyle :compinstall filename '/home/matt/.config/zsh/zshrc'
 
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 setopt \
   APPEND_HISTORY \
-  NOMATCH \
-  HIST_IGNORE_DUPS \
   HIST_SAVE_NO_DUPS \
-  PUSHD_IGNORE_DUPS \
-  nobeep \
-  nonotify
+  NOMATCH \
+  PUSHD_IGNORE_DUPS
+
+unsetopt \
+  BEEP \
+  FLOW_CONTROL \
+  NOTIFY
+
 # End of lines configured by zsh-newuser-install
 
 # st (escapes start with ^[ or \e)
-bindkey '^[[P' delete-char
-bindkey '^[[H' beginning-of-line
-bindkey '^[[4~' end-of-line
 bindkey '^[[5~' history-search-backward
 bindkey '^[[6~' history-search-forward
 bindkey '^[[1;5D' backward-word
@@ -32,29 +37,18 @@ bindkey '^[[1;5C' forward-word
 chpwd() {
   [[ -t 1 ]] || return
   case $TERM in
-    sun-cmd) print -Pn "\e]l%~\e\\"
-      ;;
     st*|*xterm*|rxvt|(dt|k|E)term) print -Pn "\e]2;%~\a"
       ;;
   esac
 }
-
 chpwd
 
-# disable flow control
-stty -ixoff -ixon
+# https://stackoverflow.com/questions/42635253/display-received-cert-with-curl
+function seecert () {
+	nslookup $1
+	(openssl s_client -showcerts -servername $1 -connect $1:443 <<< "Q" | openssl x509 -text | grep -iA2 "Validity")
+}
 
-source ~/.config/zsh/alias
-
-if [[ -f ~/.config/zsh/gcloud ]]; then
-	source ~/.config/zsh/gcloud
-fi
-
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  export XAUTHORITY=/run/user/1000/xauthority
-  exec sx
-fi
-
-if test -f /home/matt/.config/broot/launcher/bash/br; then
-	source /home/matt/.config/broot/launcher/bash/br
+if [[ -f $HOME/projects/etc/z/z.sh ]]; then
+  . $HOME/projects/etc/z/z.sh
 fi
