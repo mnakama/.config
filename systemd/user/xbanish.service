@@ -2,7 +2,7 @@
 WantedBy=graphical-session.target
 
 [Service]
-ExecStart=/home/matt/.nix-profile/bin/xbanish
+ExecStart=/etc/profiles/per-user/matt/bin/xbanish
 Restart=on-failure
 RestartSec=3
 
