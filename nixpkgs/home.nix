@@ -273,6 +273,7 @@
 
       matchBlocks = {
         nas = {
+          user = "matt";
           extraOptions = {
             PasswordAuthentication = "no";
             KbdInteractiveAuthentication = "no";
@@ -288,6 +289,7 @@
         };
 
         sexy-arch = {
+          user = "matt";
           extraOptions = {
             PasswordAuthentication = "no";
             KbdInteractiveAuthentication = "no";
@@ -295,6 +297,7 @@
         };
 
         router = {
+          user = "matt";
           port = 26;
           extraOptions = {
             PasswordAuthentication = "no";
