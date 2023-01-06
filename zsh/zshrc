@@ -13,6 +13,8 @@ zstyle ':completion:*' prompt '%e'
 zstyle ':completion:*' substitute 1
 zstyle :compinstall filename '/home/matt/.config/zsh/zshrc'
 
+autoload -Uz compinit
+compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 setopt \

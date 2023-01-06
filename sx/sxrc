@@ -8,7 +8,7 @@ if test -f ~/.config/sx/Xresources; then
 fi
 
 HOST=`hostnamectl hostname`
-if [ $HOST = 'beast' ]; then
+if [[ $HOST = 'beast' ]]; then
 	MOUSE_ID=`xinput list --id-only 'pointer:SteelSeries SteelSeries Rival 600'`
 	ACCEL=0.15
 	xinput set-float-prop $MOUSE_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
@@ -24,6 +24,13 @@ systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AG
 # 168 (175%)
 # 192 (200%)
 xrandr --dpi 144
+if [[ $HOST = 'mattnakama' ]]; then
+	xrandr \
+		--output DP-4 --mode 2560x1440 \
+		--output DP-0 --auto --right-of DP-4 --primary \
+		--output DP-3 --off
+fi
+
 # no cd; should keep current working directory as $HOME
 for file in ~/.config/autostart-pre/*; do
   $file
