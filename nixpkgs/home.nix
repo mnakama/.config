@@ -165,6 +165,7 @@
         kubernetes
         kubernetes-evil
         magit
+        markdown-mode
         nix-mode
         request
         restclient
