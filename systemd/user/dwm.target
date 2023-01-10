@@ -1,3 +1,0 @@
-[Unit]
-BindsTo=graphical-session.target
-Requires=dwm.service

@@ -132,8 +132,8 @@
       nestv="DISPLAY=:0.1 SDL_AUDIODRIVER=alsa AUDIODEV=hdmi fceux";
       eve=''WINEARCH=win32 wine /mnt/windows/Games\ \(x86\)/Eve\ Online/eve'';
       runeve=''WINEARCH=win32 wine /mnt/windows/Games\ \(x86\)/Eve\ Online/bin/ExeFile'';
-      eso=''WINEARCH=win32 WINEPREFIX=/home/matt/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\Launcher\Bethesda.net_Launcher.exe"'';
-      esoplay=''WINEARCH=win32 WINEPREFIX=/home/matt/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\The Elder Scrolls Online\game\client\eso.exe"'';
+      eso=''WINEARCH=win32 WINEPREFIX=${config.xdg.dataHome}/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\Launcher\Bethesda.net_Launcher.exe"'';
+      esoplay=''WINEARCH=win32 WINEPREFIX=${config.xdg.dataHome}/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\The Elder Scrolls Online\game\client\eso.exe"'';
       darkforces=''dosbox "/media/windows/Program Files (x86)/Steam/SteamApps/common/Dark Forces/Game"'';
 
       # linux head tracking;
@@ -331,6 +331,111 @@
     startServices = "legacy";
     sessionVariables = {
       XAUTHORITY = "$XDG_RUNTIME_DIR/xauthority";
+    };
+
+    services = {
+      dwm = {
+        Unit = {
+          After = "graphical-session-pre.target";
+          PartOf = "dwm.target";
+        };
+
+        Service = {
+          WorkingDirectory = "${config.home.homeDirectory}";
+          ExecStart = "${pkgs.dwm}/bin/dwm";
+          Restart = "on-failure";
+          RestartSec = 3;
+        };
+
+        Install.WantedBy = [ "dwm.target" ];
+      };
+
+      dwmstatus = {
+        Unit = {
+          Description = "dwm status section";
+          After = "graphical-session-pre.target";
+          PartOf = "graphical-session.target";
+        };
+
+        Service = {
+          ExecStart = "${config.home.homeDirectory}/projects/suckless/dwmstatus/dwmstatus";
+          Restart = "on-failure";
+          RestartSec = 3;
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
+      };
+
+      element-desktop = {
+        Unit = {
+          Description = "Element Desktop (matrix)";
+          After = "graphical-session-pre.target";
+          PartOf = "graphical-session.target";
+        };
+        Service = {
+          ExecStart = "${pkgs.element-desktop}/bin/element-desktop --hidden";
+          Restart = "on-failure";
+          RestartSec = 3;
+        };
+        Install.WantedBy = [ "graphical-session.target" ];
+      };
+
+      telegram = {
+        Unit = {
+          Description = "Telegram messenger";
+          After = "graphical-session-pre.target";
+          PartOf = "graphical-session.target";
+        };
+
+        Service = {
+          ExecStart = "${pkgs.tdesktop}/bin/telegram-desktop -workdir ${config.xdg.dataHome}/share/TelegramDesktop/ -autostart";
+          Restart = "on-failure";
+          RestartSec = 3;
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
+      };
+
+      xbanish = {
+        Unit = {
+          Description = "xbanish";
+          After = "graphical-session-pre.target";
+          PartOf = "graphical-session.target";
+        };
+
+        Service = {
+          ExecStart = "${pkgs.xbanish}/bin/xbanish";
+          Restart = "on-failure";
+          RestartSec = 3;
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
+      };
+
+      xhotkey = {
+        Unit = {
+          Description = "Hotkey listener";
+          After = "graphical-session-pre.target";
+          Documentation = "https://github.com/mnakama/xhotkey";
+          PartOf = "graphical-session.target";
+        };
+
+        Service = {
+          ExecStart = "${config.home.homeDirectory}/projects/xhotkey/xhotkey";
+          Restart = "on-failure";
+          RestartSet = 3;
+          KillMode = "process";
+        };
+
+        Install.WantedBy = [ "graphical-session.target" ];
+      };
+    };
+
+    targets = {
+      dwm.Unit = {
+          BindsTo = "graphical-session.target";
+          Requires = "dwm.service";
+      };
     };
   };
 
