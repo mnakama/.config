@@ -3,7 +3,6 @@
 # https://nix-community.github.io/home-manager/options.html
 
 {
-  targets.genericLinux.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   home = {
@@ -12,7 +11,6 @@
     sessionPath = [
       "$HOME/bin"
       "$HOME/go/bin"
-      "/opt/java/bin"
       "$HOME/SpiderOak Hive/Programs/Python"
     ];
 
