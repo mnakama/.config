@@ -130,8 +130,8 @@
       nestv="DISPLAY=:0.1 SDL_AUDIODRIVER=alsa AUDIODEV=hdmi fceux";
       eve=''WINEARCH=win32 wine /mnt/windows/Games\ \(x86\)/Eve\ Online/eve'';
       runeve=''WINEARCH=win32 wine /mnt/windows/Games\ \(x86\)/Eve\ Online/bin/ExeFile'';
-      eso=''WINEARCH=win32 WINEPREFIX=${config.xdg.dataHome}/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\Launcher\Bethesda.net_Launcher.exe"'';
-      esoplay=''WINEARCH=win32 WINEPREFIX=${config.xdg.dataHome}/.local/share/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\The Elder Scrolls Online\game\client\eso.exe"'';
+      eso=''WINEARCH=win32 WINEPREFIX=${config.xdg.dataHome}/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\Launcher\Bethesda.net_Launcher.exe"'';
+      esoplay=''WINEARCH=win32 WINEPREFIX=${config.xdg.dataHome}/wineprefixes/elderscrollsonline wine "C:\Program Files\Zenimax Online\The Elder Scrolls Online\game\client\eso.exe"'';
       darkforces=''dosbox "/media/windows/Program Files (x86)/Steam/SteamApps/common/Dark Forces/Game"'';
 
       # linux head tracking;
@@ -386,7 +386,7 @@
         };
 
         Service = {
-          ExecStart = "${pkgs.tdesktop}/bin/telegram-desktop -workdir ${config.xdg.dataHome}/share/TelegramDesktop/ -autostart";
+          ExecStart = "${pkgs.tdesktop}/bin/telegram-desktop -workdir ${config.xdg.dataHome}/TelegramDesktop/ -startintray";
           Restart = "on-failure";
           RestartSec = 3;
         };
