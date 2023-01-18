@@ -9,7 +9,7 @@
     stateVersion = "22.11";
 
     sessionPath = [
-      "$HOME/bin"
+      "$HOME/Sync/bin"
       "$HOME/go/bin"
       "$HOME/SpiderOak Hive/Programs/Python"
     ];
