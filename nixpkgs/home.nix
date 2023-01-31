@@ -146,6 +146,7 @@
         adoc-mode
         counsel
         dracula-theme
+        dockerfile-mode
         elpy
         evil
         evil-collection
