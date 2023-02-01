@@ -67,6 +67,10 @@
 
 (use-package request)
 
+(use-package direnv
+  :config
+  (direnv-mode))
+
 (use-package jq-mode)
 (use-package restclient
   :config

@@ -145,8 +145,9 @@
       extraPackages = epkgs: with epkgs; [
         adoc-mode
         counsel
-        dracula-theme
         dockerfile-mode
+        direnv
+        dracula-theme
         elpy
         evil
         evil-collection
@@ -182,6 +183,11 @@
     password-store = {
       enable = true;
       package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
+    };
+
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     zsh = {
