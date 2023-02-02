@@ -176,6 +176,8 @@
   (define-key evil-normal-state-map " ghl" 'git-link)
   (define-key evil-visual-state-map " ghl" 'git-link)
   (define-key evil-normal-state-map " ec" 'edit-emacs-config)
+  (define-key evil-normal-state-map " ol" 'sort-lines)
+  (define-key evil-visual-state-map " ol" 'sort-lines)
   (define-key evil-normal-state-map " sm" 'sql-mysql)
   (define-key evil-normal-state-map " sp" 'sql-postgres)
   (define-key evil-normal-state-map " sc" 'sql-connect)
