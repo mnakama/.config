@@ -43,76 +43,14 @@
  '(hl-fg-colors
    '("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36"))
  '(hl-paren-colors '("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900"))
- '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
- '(package-selected-packages
-   '(request jq jq-mode rest-client flymake-python-pyflakes python-mode nix-mode undo-tree coffee-mode adoc-mode kubernetes-evil go-tag gorepl-mode gore-mode markdown-mode use-package evil-collection evil-magit forge elpy restclient yaml-mode evil-surround evil-smartparens smartparens flycheck-flow flycheck flow-js2-mode php-mode go-rename indium kubernetes magit-gh-pulls magithub git-link go-snippets yasnippet swiper afternoon-theme solarized-theme challenger-deep-theme ivy-posframe nlinum telephone-line smart-tabs-mode evil smex avy swiper-helm counsel ivy color-theme-sanityinc-tomorrow go-mode evil-org magit evil-visual-mark-mode))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
- '(sql-connection-alist
-   '(("sms-filter-readonly"
-	  (sql-product 'postgres)
-	  (sql-user "mnakama")
-	  (sql-database "sms")
-	  (sql-server "34.86.29.239"))
-	 ("callback-scraper"
-	  (sql-product 'postgres)
-	  (sql-user "mnakama")
-	  (sql-database "callback_scraper")
-	  (sql-server "35.236.235.190"))
-	 ("sms-core"
-	  (sql-product 'postgres)
-	  (sql-user "mnakama")
-	  (sql-database "sms-filter")
-	  (sql-server "35.245.76.225"))
-	 ("sms-warehouse"
-	  (sql-product 'postgres)
-	  (sql-user "mnakama")
-	  (sql-database "sms")
-	  (sql-server "35.188.253.88"))
-	 ("sms-filter"
-	  (sql-product 'postgres)
-	  (sql-user "mnakama")
-	  (sql-database "sms")
-	  (sql-server "35.245.94.51"))
-	 ("cc-pubsub"
-	  (sql-product 'mysql)
-	  (sql-user "mnakama")
-	  (sql-database "warehouse")
-	  (sql-server ""))))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
- '(vc-annotate-background nil)
- '(vc-annotate-background-mode nil)
- '(vc-annotate-color-map
-   '((20 . "#ff9da4")
-	 (40 . "#ffc58f")
-	 (60 . "#ffeead")
-	 (80 . "#d1f1a9")
-	 (100 . "#99ffff")
-	 (120 . "#bbdaff")
-	 (140 . "#ebbbff")
-	 (160 . "#ff9da4")
-	 (180 . "#ffc58f")
-	 (200 . "#ffeead")
-	 (220 . "#d1f1a9")
-	 (240 . "#99ffff")
-	 (260 . "#bbdaff")
-	 (280 . "#ebbbff")
-	 (300 . "#ff9da4")
-	 (320 . "#ffc58f")
-	 (340 . "#ffeead")
-	 (360 . "#d1f1a9")))
- '(vc-annotate-very-old-color nil)
- '(warning-suppress-types '((auto-save)))
- '(weechat-color-list
-   '(unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83"))
- '(xterm-color-names
-   ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
- '(xterm-color-names-bright
-   ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1" "#fdf6e3"]))
+ '(warning-suppress-types '((auto-save))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

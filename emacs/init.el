@@ -27,8 +27,8 @@
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;(add-to-list 'load-path "~/.config/emacs/lisp")
-
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 ; only needed on systems without nix/home-manager
 ;(require 'use-package-ensure)
@@ -40,12 +40,11 @@
 (load custom-file 'noerror)
 
 (use-package telephone-line
+  :custom
+  (telephone-line-primary-right-separator 'telephone-line-abs-left)
+  (telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
+  (telephone-line-evil-use-short-tag nil)
   :config
-
-  (setq telephone-line-primary-right-separator 'telephone-line-abs-left
-		telephone-line-secondary-right-separator 'telephone-line-abs-hollow-left)
-  (setq telephone-line-evil-use-short-tag nil)
-
   (telephone-line-mode 1))
 
 ; fix telephone-line after changing font size
@@ -135,6 +134,18 @@
   (interactive)
   (find-file "~/.config/emacs/init.el"))
 
+(defun edit-home-manager-config ()
+  (interactive)
+  (find-file "~/.config/nixpkgs/home.nix"))
+
+(defun edit-nixos-config ()
+  (interactive)
+  (find-file "/etc/nixos/configuration.nix"))
+
+(defun nixos-rebuild-switch ()
+  (interactive)
+  (async-shell-command "sudo nixos-rebuild switch"))
+
 (defun json-unpretty-print-buffer ()
   (interactive)
   (json-pretty-print-buffer t))
@@ -144,7 +155,8 @@
 (use-package undo-tree
   :config
   (global-undo-tree-mode t)
-  (setq undo-tree-auto-save-history nil))
+  :custom
+  (undo-tree-auto-save-history nil))
 
 (use-package evil
   :after undo-tree
@@ -176,6 +188,9 @@
   (define-key evil-normal-state-map " ghl" 'git-link)
   (define-key evil-visual-state-map " ghl" 'git-link)
   (define-key evil-normal-state-map " ec" 'edit-emacs-config)
+  (define-key evil-normal-state-map " nh" 'edit-home-manager-config)
+  (define-key evil-normal-state-map " nc" 'edit-nixos-config)
+  (define-key evil-normal-state-map " ns" 'nixos-rebuild-switch)
   (define-key evil-normal-state-map " ol" 'sort-lines)
   (define-key evil-visual-state-map " ol" 'sort-lines)
   (define-key evil-normal-state-map " sm" 'sql-mysql)
@@ -202,7 +217,7 @@
   (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
   :hook (prog-mode . smartparens-mode))
 
-(use-package magit)
+;(use-package magit)
 (use-package git-link)
 
 (use-package evil-collection
@@ -212,7 +227,6 @@
 
 (use-package evil-surround
   :after evil
-  :ensure t
   :config
   (global-evil-surround-mode 1))
 
@@ -228,8 +242,9 @@
   ("\C-s" . swiper))
 
 (use-package ivy
+  :custom
+  (ivy-initial-inputs-alist nil)
   :config
-  (setq ivy-initial-inputs-alist nil)
   (ivy-mode t)
   (global-set-key (kbd "C-c C-r") 'ivy-resume))
 
