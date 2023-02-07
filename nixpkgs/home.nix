@@ -205,7 +205,7 @@
         share = false;
       };
       localVariables = {
-        PROMPT = ''%F{cyan}%~%(1j. %F{yellow}%j%f.)%(0?.. %F{9}%?%f%b)%F{magenta}%#%f '';
+        PROMPT = ''%m %F{cyan}%~%(1j. %F{yellow}%j%f.)%(0?.. %F{9}%?%f%b)%F{magenta}%#%f '';
         UNAME = "`uname`";
         KEYTIMEOUT = 1;
       };

@@ -15,6 +15,8 @@ if [[ $HOST = 'beast' ]]; then
 	xinput set-float-prop $MOUSE_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
 fi
 
+xset dpms 7200 7200 14400
+
 systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AGENT_PID PASSWORD_STORE_DIR XDG_SESSION_TYPE
 
 # https://wiki.archlinux.org/title/Xorg#Display_size_and_DPI
