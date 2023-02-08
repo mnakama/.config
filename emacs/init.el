@@ -86,11 +86,15 @@
   :hook (before-save . gofmt-before-save))
 
 (use-package elpy
-  :defer t
+  :mode ("\\.py\\'" . 'python-mode)
   :init (advice-add 'python-mode :before 'elpy-enable))
 
-(setq py-python-command "python"
-	  python-shell-interpreter "python")
+(use-package py-isort
+  :mode ("\\.py\\'" . 'python-mode)
+  :config (add-hook 'before-save-hook 'py-isort-before-save))
+
+;(setq py-python-command "python"
+;	  python-shell-interpreter "python")
 
 (use-package go-tag
   :after go-mode)

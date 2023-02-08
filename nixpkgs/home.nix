@@ -145,8 +145,8 @@
       extraPackages = epkgs: with epkgs; [
         adoc-mode
         counsel
-        dockerfile-mode
         direnv
+        dockerfile-mode
         dracula-theme
         elpy
         evil
@@ -167,6 +167,7 @@
         magit
         markdown-mode
         nix-mode
+        py-isort
         request
         restclient
         smart-tabs-mode
