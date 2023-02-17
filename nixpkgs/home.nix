@@ -16,7 +16,7 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      VISUAL = "/etc/profiles/per-user/matt/bin/nvim";
+      VISUAL = "nvim";
       MPD_HOST = "$XDG_RUNTIME_DIR/mpd/socket";
     };
 
