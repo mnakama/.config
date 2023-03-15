@@ -166,6 +166,7 @@
         kubernetes-evil
         magit
         markdown-mode
+        monky
         nix-mode
         py-isort
         request

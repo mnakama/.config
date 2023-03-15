@@ -24,6 +24,11 @@
   (add-hook 'window-setup-hook 'toggle-frame-maximized)
   (setq-default tramp-default-method "sshx"))
 
+(setq backup-directory-alist
+  `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+  `((".*" ,temporary-file-directory t)))
+
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;(add-to-list 'load-path "~/.config/emacs/lisp")
@@ -191,6 +196,7 @@
   (define-key evil-normal-state-map " gch" 'magit-checkout)
   (define-key evil-normal-state-map " ghl" 'git-link)
   (define-key evil-visual-state-map " ghl" 'git-link)
+  (define-key evil-normal-state-map " hs" 'monky-status)
   (define-key evil-normal-state-map " ec" 'edit-emacs-config)
   (define-key evil-normal-state-map " nh" 'edit-home-manager-config)
   (define-key evil-normal-state-map " nc" 'edit-nixos-config)
