@@ -31,9 +31,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class      instance     title                      tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,        NULL,                      0,            1,           -1 },
+	{ "firefox",  "Navigator", NULL,                      1 << 1,       0,           -1 },
+	{ "Emacs",    "emacs",     NULL,                      1 << 2,       0,           -1 },
+	{ "Spotify",  "spotify",   NULL,                      1 << 6,       0,            1 },
+
+	{ "zoom",     ".zoom ",    "Zoom",                    1 << 4,       0,            0 }, // meeting windows
+	{ "zoom",     ".zoom ",    "zoom",                    1 << 4,       1,            0 }, // popup
+	{ "zoom",     ".zoom ",    "Zoom - Licensed Account", 1 << 8,       0,            1 }, // background
+	{ "Slack",    "slack",     "Slack",                   1 << 8,       0,            1 },
+	{ "F5 VPN",   "f5vpn",     NULL,                      1 << 8,       1,            0 },
 };
 
 /* layout(s) */
@@ -120,4 +128,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-

@@ -563,7 +563,6 @@
     pv
     pwgen
     scrot
-    spotify
     tdesktop # needs nixGL
     tigervnc
     unrar
