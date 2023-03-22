@@ -113,7 +113,12 @@
   :mode "\\.nix\\'")
 
 (use-package flycheck
-  :config (global-flycheck-mode))
+  :config
+  (global-flycheck-mode)
+  ; fix direnv+flycheck issue with workaround found here:
+  ; https://github.com/wbolster/emacs-direnv/issues/17
+  (setq flycheck-executable-find
+        (lambda (cmd) (direnv-update-environment default-directory) (executable-find cmd))))
 
 (use-package flycheck-flow
   :after flycheck js2-mode
