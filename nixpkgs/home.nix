@@ -330,6 +330,15 @@
             KbdInteractiveAuthentication = "no";
           };
         };
+
+        laz = {
+          user = "mnakama";
+          port = 2222;
+          extraOptions = {
+            PasswordAuthentication = "no";
+            KbdInteractiveAuthentication = "no";
+          };
+        };
       };
     };
   };
