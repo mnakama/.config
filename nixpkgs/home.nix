@@ -203,19 +203,22 @@
       history = {
         ignoreDups = true;
         ignoreSpace = true;
-        path = "$HOME/.histfile";
+        path = "${config.home.homeDirectory}/.histfile";
         size = 1500;
         save = 1000;
         share = false;
       };
       localVariables = {
         PROMPT = ''%m %F{cyan}%~%(1j. %F{yellow}%j%f.)%(0?.. %F{9}%?%f%b)%F{magenta}%#%f '';
-        UNAME = "`uname`";
         KEYTIMEOUT = 1;
       };
-      initExtra = ''
-        . ${config.xdg.configHome}/zsh/zshrc
+      loginExtra = ''
+        if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+          export XAUTHORITY=/run/user/$(id -u)/xauthority
+          exec ${pkgs.sx}/bin/sx
+        fi
       '';
+      initExtra = builtins.readFile "${config.xdg.configHome}/zsh/zshrc";
     };
 
     fish = {
