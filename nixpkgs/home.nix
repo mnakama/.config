@@ -228,10 +228,8 @@
     git = {
       enable = true;
       userName = "Matt Nakama";
-      userEmail = "matt+git@mattnakama.com";
       signing = {
         key = "21050986B2E83B8A";
-        signByDefault = true;
       };
       aliases = {
         a = "add";
