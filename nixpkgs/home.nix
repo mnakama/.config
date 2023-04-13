@@ -168,7 +168,9 @@
         markdown-mode
         monky
         nix-mode
+        pycoverage
         py-isort
+        python-pytest
         request
         restclient
         smart-tabs-mode
