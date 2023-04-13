@@ -384,36 +384,6 @@
         Install.WantedBy = [ "graphical-session.target" ];
       };
 
-      element-desktop = {
-        Unit = {
-          Description = "Element Desktop (matrix)";
-          After = "graphical-session-pre.target";
-          PartOf = "graphical-session.target";
-        };
-        Service = {
-          ExecStart = "${pkgs.element-desktop}/bin/element-desktop --hidden";
-          Restart = "on-failure";
-          RestartSec = 3;
-        };
-        Install.WantedBy = [ "graphical-session.target" ];
-      };
-
-      telegram = {
-        Unit = {
-          Description = "Telegram messenger";
-          After = "graphical-session-pre.target";
-          PartOf = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${pkgs.tdesktop}/bin/telegram-desktop -workdir ${config.xdg.dataHome}/TelegramDesktop/ -startintray";
-          Restart = "on-failure";
-          RestartSec = 3;
-        };
-
-        Install.WantedBy = [ "graphical-session.target" ];
-      };
-
       xbanish = {
         Unit = {
           Description = "xbanish";
@@ -556,7 +526,6 @@
     cdparanoia
     dia
     dmenu
-    element-desktop
     epdfview
     feh
     gimp
@@ -574,7 +543,6 @@
     pv
     pwgen
     scrot
-    tdesktop # needs nixGL
     tigervnc
     unrar
     unzip
