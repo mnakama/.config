@@ -510,7 +510,6 @@
   };
 
   home.packages = with pkgs; [
-    abcde
     alacritty
     alsa-utils
     amfora
@@ -523,7 +522,6 @@
     audacity
     beep
     calibre
-    cdparanoia
     dia
     dmenu
     epdfview
