@@ -273,7 +273,10 @@
       };
     };
 
-    ssh = {
+    ssh = let nopw = {
+      PasswordAuthentication = "no";
+      KbdInteractiveAuthentication = "no";
+    }; in {
       enable = true;
       controlMaster = "auto";
       controlPath = "/run/user/1000/ssh_%r@%h:%p";
@@ -285,62 +288,41 @@
       matchBlocks = {
         nas = {
           user = "matt";
-          extraOptions = {
-            PasswordAuthentication = "no";
-            KbdInteractiveAuthentication = "no";
-          };
+          extraOptions = nopw;
         };
 
         nas-root = {
           user = "root";
-          extraOptions = {
-            PasswordAuthentication = "no";
-            KbdInteractiveAuthentication = "no";
-          };
+          extraOptions = nopw;
         };
 
         sexy-arch = {
           user = "matt";
-          extraOptions = {
-            PasswordAuthentication = "no";
-            KbdInteractiveAuthentication = "no";
-          };
+          extraOptions = nopw;
         };
 
         router = {
           user = "matt";
           port = 26;
-          extraOptions = {
-            PasswordAuthentication = "no";
-            KbdInteractiveAuthentication = "no";
-          };
+          extraOptions = nopw;
         };
 
         hive-db = {
           user = "ubuntu";
           hostname = "k8s-postgres.hive.local";
-          extraOptions = {
-            PasswordAuthentication = "no";
-            KbdInteractiveAuthentication = "no";
-          };
+          extraOptions = nopw;
         };
 
         devzero = {
           user = "gnuman";
           port = 58391;
-          extraOptions = {
-            PasswordAuthentication = "no";
-            KbdInteractiveAuthentication = "no";
-          };
+          extraOptions = nopw;
         };
 
         laz = {
           user = "mnakama";
           port = 2222;
-          extraOptions = {
-            PasswordAuthentication = "no";
-            KbdInteractiveAuthentication = "no";
-          };
+          extraOptions = nopw;
         };
       };
     };
@@ -422,8 +404,8 @@
 
     targets = {
       dwm.Unit = {
-          BindsTo = "graphical-session.target";
-          Requires = "dwm.service";
+        BindsTo = "graphical-session.target";
+        Requires = "dwm.service";
       };
     };
   };
