@@ -173,7 +173,6 @@
         python-pytest
         request
         restclient
-        smart-tabs-mode
         smartparens
         swiper
         telephone-line

@@ -127,10 +127,6 @@
   (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
   (flycheck-add-next-checker 'javascript-flow 'javascript-eslint))
 
-(use-package smart-tabs-mode
-  :config
-  (smart-tabs-insinuate 'javascript))
-
 (use-package yasnippet
   :init
   (add-to-list 'load-path "~/.config/emacs/plugins/yasnippet")
