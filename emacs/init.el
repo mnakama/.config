@@ -150,7 +150,7 @@
 
 (defun edit-nixos-config ()
   (interactive)
-  (find-file "/etc/nixos/configuration.nix"))
+  (find-file "/etc/nixos/lib"))
 
 (defun nixos-rebuild-switch ()
   (interactive)
