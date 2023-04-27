@@ -168,8 +168,9 @@
         markdown-mode
         monky
         nix-mode
-        pycoverage
+        php-mode
         py-isort
+        pycoverage
         python-pytest
         request
         restclient
@@ -318,9 +319,23 @@
           extraOptions = nopw;
         };
 
-        laz = {
+        laz-l1 = {
           user = "mnakama";
-          port = 2222;
+          extraOptions = nopw;
+        };
+
+        laz-l2 = {
+          user = "mnakama";
+          extraOptions = nopw;
+        };
+
+        laz-git = {
+          user = "mnakama";
+          extraOptions = nopw;
+        };
+
+        laz-nix = {
+          user = "mnakama";
           extraOptions = nopw;
         };
       };
