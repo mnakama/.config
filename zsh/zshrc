@@ -49,3 +49,6 @@ function seecert () {
 if [[ -f $HOME/projects/etc/z/z.sh ]]; then
   . $HOME/projects/etc/z/z.sh
 fi
+
+# https://github.com/haslersn/any-nix-shell#zsh
+any-nix-shell zsh --info-right | source /dev/stdin

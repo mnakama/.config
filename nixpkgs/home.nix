@@ -53,6 +53,9 @@
       pd=''pushd'';
       p=''popd'';
 
+      n="nix-shell";
+      b="nix-build";
+
       k=''kubectl'';
       kc=''k config use-context'';
       kcg=''k config get-contexts'';
@@ -169,6 +172,7 @@
         monky
         nix-mode
         php-mode
+        plantuml-mode
         py-isort
         pycoverage
         python-pytest

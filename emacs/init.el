@@ -78,6 +78,7 @@
 (use-package jq-mode)
 (use-package restclient
   :config
+  (setq-default restclient-inhibit-cookies t)
   (add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode)))
 
 (use-package yaml-mode
@@ -85,6 +86,13 @@
 
 (use-package adoc-mode
   :mode "\\.adoc\\'")
+
+(use-package plantuml-mode
+  :mode "\\.puml\\'"
+  :init
+  (setq-default plantuml-executable-path "/etc/profiles/per-user/matt/bin/plantuml")
+  (setq-default plantuml-default-exec-mode 'executable)
+)
 
 (use-package go-mode
   :mode "\\.go\\'"
