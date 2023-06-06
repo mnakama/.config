@@ -128,6 +128,12 @@
       mt=''mount | column -t'';
       xrecord=''ffmpeg -f x11grab -s wxga -r 25 -i :0.0 -qscale 9 /tmp/out.mpg'';
 
+      # source: https://wiki.archlinux.org/title/Webcam_setup#mpv
+      camview="mpv --profile=low-latency --untimed"; # av://v4l2:/dev/video4
+
+      # source: https://flathub.org/apps/hu.irl.cameractrls
+      camctl="hu.irl.cameractrls"; # installed via flatpack
+
       # Games;
       glhack=''glhack --mode 1600x900'';
       nestv="DISPLAY=:0.1 SDL_AUDIODRIVER=alsa AUDIODEV=hdmi fceux";
