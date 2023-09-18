@@ -293,6 +293,7 @@
       hashKnownHosts = false;
       extraConfig = ''
         AddKeysToAgent yes
+        EnableEscapeCommandline yes
       '';
 
       matchBlocks = {
