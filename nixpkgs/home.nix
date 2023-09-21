@@ -307,6 +307,12 @@
           extraOptions = nopw;
         };
 
+        nas-boot = {
+          user = "root";
+          hostname = "fc00::d250:99ff:fe7d:59c0";
+          extraOptions = nopw;
+        };
+
         sexy-arch = {
           user = "matt";
           extraOptions = nopw;
