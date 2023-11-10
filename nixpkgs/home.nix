@@ -1,8 +1,9 @@
 { pkgs, config, ...}:
 
 # https://nix-community.github.io/home-manager/options.html
-
-{
+let
+  runtime-dir = "/run/user/1000";
+in {
   nixpkgs.config.allowUnfree = true;
 
   home = {
@@ -224,8 +225,8 @@
       };
       loginExtra = ''
         if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-          export XAUTHORITY=/run/user/$(id -u)/xauthority
-          exec ${pkgs.sx}/bin/sx
+          export XAUTHORITY="$XDG_RUNTIME_DIR/xauthority"
+          sway || sx
         fi
       '';
       initExtra = builtins.readFile "${config.xdg.configHome}/zsh/zshrc";
@@ -246,8 +247,8 @@
       };
       aliases = {
         a = "add";
-        ai = "git add --interactive";
-        ap = "git add -p";
+        ai = "add --interactive";
+        ap = "add -p";
         b = "branch";
         c = "commit";
         ca = "commit --amend";
@@ -289,7 +290,7 @@
     }; in {
       enable = true;
       controlMaster = "auto";
-      controlPath = "/run/user/1000/ssh_%r@%h:%p";
+      controlPath = "${runtime-dir}/ssh_%r@%h:%p";
       hashKnownHosts = false;
       extraConfig = ''
         AddKeysToAgent yes
@@ -333,26 +334,6 @@
         devzero = {
           user = "gnuman";
           port = 58391;
-          extraOptions = nopw;
-        };
-
-        laz-l1 = {
-          user = "mnakama";
-          extraOptions = nopw;
-        };
-
-        laz-l2 = {
-          user = "mnakama";
-          extraOptions = nopw;
-        };
-
-        laz-git = {
-          user = "mnakama";
-          extraOptions = nopw;
-        };
-
-        laz-nix = {
-          user = "mnakama";
           extraOptions = nopw;
         };
       };
