@@ -345,81 +345,6 @@ in {
     sessionVariables = {
       XAUTHORITY = "$XDG_RUNTIME_DIR/xauthority";
     };
-
-    services = {
-      dwm = {
-        Unit = {
-          After = "graphical-session-pre.target";
-          PartOf = "dwm.target";
-        };
-
-        Service = {
-          WorkingDirectory = "${config.home.homeDirectory}";
-          ExecStart = "${pkgs.dwm}/bin/dwm";
-          Restart = "on-failure";
-          RestartSec = 3;
-        };
-
-        Install.WantedBy = [ "dwm.target" ];
-      };
-
-      dwmstatus = {
-        Unit = {
-          Description = "dwm status section";
-          After = "graphical-session-pre.target";
-          PartOf = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${config.home.homeDirectory}/projects/suckless/dwmstatus/dwmstatus";
-          Restart = "on-failure";
-          RestartSec = 3;
-        };
-
-        Install.WantedBy = [ "graphical-session.target" ];
-      };
-
-      xbanish = {
-        Unit = {
-          Description = "xbanish";
-          After = "graphical-session-pre.target";
-          PartOf = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${pkgs.xbanish}/bin/xbanish";
-          Restart = "on-failure";
-          RestartSec = 3;
-        };
-
-        Install.WantedBy = [ "graphical-session.target" ];
-      };
-
-      xhotkey = {
-        Unit = {
-          Description = "Hotkey listener";
-          After = "graphical-session-pre.target";
-          Documentation = "https://github.com/mnakama/xhotkey";
-          PartOf = "graphical-session.target";
-        };
-
-        Service = {
-          ExecStart = "${config.home.homeDirectory}/projects/xhotkey/xhotkey";
-          Restart = "on-failure";
-          RestartSet = 3;
-          KillMode = "process";
-        };
-
-        Install.WantedBy = [ "graphical-session.target" ];
-      };
-    };
-
-    targets = {
-      dwm.Unit = {
-        BindsTo = "graphical-session.target";
-        Requires = "dwm.service";
-      };
-    };
   };
 
   services = {
@@ -490,17 +415,9 @@ in {
       enable = true;
     };
 
-    redshift = {
-      enable = true;
-      latitude = 43.0;
-      longitude = -74.0;
-    };
-
     password-store-sync = {
       enable = true;
       frequency = "*-*-* *:00:00";
     };
-
-    xscreensaver.enable = true;
   };
 }
