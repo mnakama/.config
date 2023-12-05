@@ -340,6 +340,18 @@ in {
     };
   };
 
+  xdg = {
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/tg" = "userapp-Telegram Desktop-PPY401.desktop";
+        "x-scheme-handler/postman" = "Postman.desktop";
+      };
+    };
+  };
+
   systemd.user = {
     startServices = "legacy";
     sessionVariables = {
