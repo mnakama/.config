@@ -94,11 +94,21 @@ in {
       hpc=''hub pr checkout'';
       hpp=''hub pull-request'';
 
+      hq="hg qseries -s";
+      hqp="hg qpop";
+      hqpu="hg qpush";
+      hqpm="hg qpush --move";
+      hl="hg log";
+      hlp="hg log -l 1 -p";
+      hd="hg diff";
+      hgg="hg log -G";
+
       dk=''docker'';
       di=''docker image ls'';
       dp=''docker ps'';
       dps=''docker ps -a'';
       dclean=''docker system prune --volumes -fa'';
+      dkc="docker compose";
 
       lt=''go test ./...'';
       lti=''go test ./... -tags=integration count=1'';
