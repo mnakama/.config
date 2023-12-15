@@ -293,6 +293,15 @@
   :config
   (defvar ivy-display-function #'ivy-posframe-display-at-frame-bottom-left))
 
+(if (string-match "mattnakama" (system-name))
+	; enable copilot on the work machine
+	; https://robert.kra.hn/posts/2023-02-22-copilot-emacs-setup/
+	(use-package copilot
+	:load-path (lambda () (expand-file-name "copilot.el" user-emacs-directory))
+	;; don't show in mode line
+	;:diminish
+))
+
 ;(global-set-key "\M-x" 'execute-extended-command)
 
 ;;; init.el ends here

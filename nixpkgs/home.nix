@@ -202,6 +202,11 @@ in {
         use-package
         yaml-mode
         yasnippet
+
+        # copilot deps
+        dash
+        editorconfig
+        s
       ];
     };
 
