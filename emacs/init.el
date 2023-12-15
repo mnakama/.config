@@ -207,7 +207,6 @@
   (define-key evil-normal-state-map " gch" 'magit-checkout)
   (define-key evil-normal-state-map " ghl" 'git-link)
   (define-key evil-visual-state-map " ghl" 'git-link)
-  (define-key evil-normal-state-map " hs" 'monky-status)
   (define-key evil-normal-state-map " ec" 'edit-emacs-config)
   (define-key evil-normal-state-map " nh" 'edit-home-manager-config)
   (define-key evil-normal-state-map " nc" 'edit-nixos-config)
@@ -221,6 +220,11 @@
   (define-key evil-normal-state-map " t" 'go-tag-add)
   (define-key evil-normal-state-map " T" 'go-tag-remove)
   (define-key evil-normal-state-map " k" 'kubernetes-overview)
+
+  ; hg / monky
+  (define-key evil-normal-state-map " hs" 'monky-status)
+  (define-key evil-normal-state-map " H" 'monky-hg-command)
+  (define-key evil-normal-state-map " hh" 'monky-hg-command)
 
   (evil-define-key 'normal js-mode-map " p" 'json-pretty-print-buffer)
   (evil-define-key 'normal js-mode-map " P" 'json-unpretty-print-buffer)
