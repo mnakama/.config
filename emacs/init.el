@@ -13,6 +13,8 @@
 (setq inhibit-splash-screen t)
 (blink-cursor-mode 0)
 
+(setq ring-bell-function 'ignore)
+
 (setq-default buffer-file-coding-system 'utf-8-unix)
 
 (when (eq window-system 'ns)
