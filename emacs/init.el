@@ -221,6 +221,10 @@
   (define-key evil-normal-state-map " T" 'go-tag-remove)
   (define-key evil-normal-state-map " k" 'kubernetes-overview)
 
+  ; run emacs compile, which calls make
+  ; https://www.emacswiki.org/emacs/CompileCommand
+  (define-key evil-normal-state-map " c" 'compile)
+
   ; hg / monky
   (define-key evil-normal-state-map " hs" 'monky-status)
   (define-key evil-normal-state-map " H" 'monky-hg-command)
