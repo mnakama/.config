@@ -1,6 +1,7 @@
 { pkgs, config, ...}:
 
-# https://nix-community.github.io/home-manager/options.html
+# https://nix-community.github.io/home-manager/options.xhtml
+# file:///etc/nixos/lib/Home%20Manager%20Configuration%20Options.xhtml
 let
   runtime-dir = "/run/user/1000";
 in {
@@ -223,7 +224,8 @@ in {
 
     zsh = {
       enable = true;
-      enableSyntaxHighlighting = true;
+      # trace: warning: matt profile: The option `programs.zsh.enableSyntaxHighlighting' defined in `/etc/nixos/lib/mod/desktop.nix' has been renamed to `programs.zsh.syntaxHighlighting.enable'.
+      syntaxHighlighting.enable = true;
       enableVteIntegration = true;
       defaultKeymap = "viins";
       autocd = true;
@@ -360,8 +362,11 @@ in {
     mime.enable = true;
     mimeApps = {
       enable = true;
-      defaultApplications = {
-        "text/html" = "firefox.desktop";
+      defaultApplications = let browser = "firefox.desktop"; in {
+        "application/xhtml+xml" = browser;
+        "text/html" = browser;
+        "text/xhtml" = browser;
+        "text/xml" = browser;
         "x-scheme-handler/tg" = "userapp-Telegram Desktop-PPY401.desktop";
         "x-scheme-handler/postman" = "Postman.desktop";
       };
@@ -444,9 +449,17 @@ in {
       enable = true;
     };
 
-    password-store-sync = {
+    # The option definition `services.password-store-sync' in `/etc/nixos/lib/mod/desktop.nix' no longer has any effect; please remove it.
+    # Use services.git-sync instead.
+    git-sync = {
       enable = true;
-      frequency = "*-*-* *:00:00";
+      repositories = {
+        pass = {
+          path = config.programs.password-store.settings.PASSWORD_STORE_DIR;
+          uri = "matt@nas:~/password-store";
+          interval = 3600; # 1 hour
+        };
+      };
     };
   };
 }
