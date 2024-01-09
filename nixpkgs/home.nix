@@ -96,14 +96,16 @@ in {
       hpc=''hub pr checkout'';
       hpp=''hub pull-request'';
 
-      hq="hg qseries -s";
-      hqp="hg qpop";
-      hqpu="hg qpush";
-      hqpm="hg qpush --move";
-      hl="hg log";
-      hlp="hg log -l 1 -p";
-      hd="hg diff";
-      hgg="hg log -G";
+      hq   = "hg qseries -s";
+      hqp  = "hg qpop";
+      hqpu = "hg qpush";
+      hqpm = "hg qpush --move";
+      hl   = "hg log";
+      hlp  = "hg log -l 1 -p";
+      hd   = "hg diff";
+      hgg  = "hg log -G";
+      hh   = "hg log -l 1 --template '{node}' -r ."; # hg hash of current commit
+      hhr  = "hg log -l 1 --template '{node}' -r"; # hg hash of any commit
 
       dk=''docker'';
       di=''docker image ls'';
