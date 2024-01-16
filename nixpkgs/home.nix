@@ -304,6 +304,11 @@ in {
       };
     };
 
+    browserpass = {
+      enable = true;
+      browsers = [ "firefox" ];
+    };
+
     ssh = let nopw = {
       PasswordAuthentication = "no";
       KbdInteractiveAuthentication = "no";
