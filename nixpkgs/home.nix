@@ -11,6 +11,7 @@ in {
     stateVersion = "22.11";
 
     sessionPath = [
+      "$HOME/.local/bin"
       "$HOME/Sync/bin"
       "$HOME/go/bin"
       "$HOME/SpiderOak Hive/Programs/Python"
@@ -73,6 +74,7 @@ in {
       gai=''clear; git add --interactive'';
       gap=''clear; git add -p'';
       gb=''git branch'';
+      gbb=''git branch --format "%(HEAD) %(align:width=30)%(refname:short)%(end) %(align:width=20)%(authorname)%(end) %(align:width=34)%(authoremail)%(end) %(authordate:short)"'';
       gc=''git commit'';
       gca=''git commit --amend'';
       gch=''git checkout'';
@@ -192,8 +194,10 @@ in {
         markdown-mode
         monky
         nix-mode
+        org-jira
         php-mode
         plantuml-mode
+        puppet-mode
         py-isort
         pycoverage
         python-pytest

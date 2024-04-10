@@ -221,6 +221,14 @@
   (define-key evil-normal-state-map " T" 'go-tag-remove)
   (define-key evil-normal-state-map " k" 'kubernetes-overview)
 
+  ; tests
+  (define-key evil-normal-state-map " U" 'python-pytest-dispatch)
+  (define-key evil-normal-state-map " ur" 'python-pytest-repeat)
+  (define-key evil-normal-state-map " uf" 'python-pytest-file-dwim)
+  (define-key evil-normal-state-map " uu" 'python-pytest-function-dwim)
+  (define-key evil-normal-state-map " ud" 'python-pytest-last-failed)
+
+
   ; run emacs compile, which calls make
   ; https://www.emacswiki.org/emacs/CompileCommand
   (define-key evil-normal-state-map " c" 'compile)
