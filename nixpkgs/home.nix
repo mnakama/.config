@@ -57,6 +57,8 @@ in {
       pd=''pushd'';
       p=''popd'';
 
+      ssh-all="ssh-add ~/.ssh/session-keys.d/*";
+
       n="nix-shell";
       b="nix-build";
 

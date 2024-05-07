@@ -8,7 +8,7 @@ if test -f ~/.config/sx/Xresources; then
 	xrdb -merge ~/.config/sx/Xresources
 fi
 
-#HOST=`hostnamectl hostname`
+HOST=`hostnamectl hostname`
 #if [[ $HOST = 'beast' ]]; then
 #	MOUSE_ID=`xinput list --id-only 'pointer:SteelSeries SteelSeries Rival 600'`
 #	ACCEL=0.15
@@ -29,6 +29,7 @@ systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AG
 # 168 (175%)
 # 192 (200%)
 xrandr --dpi 144
+
 if [[ $HOST = 'mattnakama' ]]; then
 	xrandr \
 		--output DP-4 --mode 2560x1440 \
