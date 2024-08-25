@@ -8,14 +8,8 @@ if test -f ~/.config/sx/Xresources; then
 	xrdb -merge ~/.config/sx/Xresources
 fi
 
-HOST=`hostnamectl hostname`
-#if [[ $HOST = 'beast' ]]; then
-#	MOUSE_ID=`xinput list --id-only 'pointer:SteelSeries SteelSeries Rival 600'`
-#	ACCEL=0.15
-#	xinput set-float-prop $MOUSE_ID 'Coordinate Transformation Matrix' $ACCEL 0 0 0 $ACCEL 0 0 0 1
-#fi
-
-xinput set-float-prop 'Logitech M705' 'libinput Accel Speed' 0.2
+# HOST gets set somewhere else.
+#HOST=`hostnamectl hostname`
 
 xset dpms 7200 7200 14400
 
