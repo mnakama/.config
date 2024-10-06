@@ -208,6 +208,7 @@ in {
         smartparens
         swiper
         telephone-line
+        typescript-mode
         undo-tree
         use-package
         yaml-mode
