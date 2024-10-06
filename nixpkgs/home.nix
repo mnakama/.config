@@ -367,6 +367,12 @@ in {
           port = 58391;
           extraOptions = nopw;
         };
+
+        vps = {
+          user = "matt";
+          port = 20332;
+          extraOptions = nopw;
+        };
       };
     };
   };
