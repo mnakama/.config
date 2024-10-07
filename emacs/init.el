@@ -190,6 +190,21 @@
 	      (substring-no-properties
 	        (nth 0 kill-ring)) 'utf-8) t))))
 
+(defun coverage ()
+  "Show test coverage for current file, dependent on major mode"
+  (interactive)
+
+  (if (eq major-mode 'go-mode)
+    (go-coverage "coverage.out")
+
+	; else
+    (if (eq major-mode 'python-mode)
+      (print "python TBD")
+    )
+  )
+)
+
+
 (require 'sql)
 
 (use-package undo-tree
@@ -252,6 +267,9 @@
   ; run emacs compile, which calls make
   ; https://www.emacswiki.org/emacs/CompileCommand
   (define-key evil-normal-state-map " c" 'compile)
+
+  ; coverage (see definition above)
+  (define-key evil-normal-state-map " C" 'coverage)
 
   ; hg / monky
   (define-key evil-normal-state-map " hs" 'monky-status)
