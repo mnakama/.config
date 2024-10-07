@@ -22,6 +22,10 @@ in {
       VISUAL = "nvim";
       MPD_HOST = "$XDG_RUNTIME_DIR/mpd/socket";
       MOZ_USE_XINPUT2 = 1; # hi-res mousewheel scrolling in firefox
+
+      # truecolor in emacs terminal
+      # https://www.gnu.org/software/emacs/manual/html_node/efaq/Colors-on-a-TTY.html
+      COLORTERM = "truecolor";
     };
 
     shellAliases = {

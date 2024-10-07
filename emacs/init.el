@@ -15,6 +15,9 @@
 
 (setq ring-bell-function 'ignore)
 
+; enable mouse in console
+(xterm-mouse-mode t)
+
 (setq-default buffer-file-coding-system 'utf-8-unix)
 
 (when (eq window-system 'ns)
@@ -169,6 +172,23 @@
 (defun json-unpretty-print-buffer ()
   (interactive)
   (json-pretty-print-buffer t))
+
+; paste from terminal:
+; 1. (Emacs mode) C-u C-y
+; 2. M-x electric-indent-mode
+; https://stackoverflow.com/questions/986592/any-emacs-command-like-paste-mode-in-vim
+
+; copy to clipboard via terminal
+; https://stackoverflow.com/a/65657463
+(defun yank-to-clipboard ()
+  "Use ANSI OSC 52 escape sequence to attempt clipboard copy"
+  (interactive)
+  (send-string-to-terminal
+    (format "\033]52;c;%s\a"
+	  (base64-encode-string
+	    (encode-coding-string
+	      (substring-no-properties
+	        (nth 0 kill-ring)) 'utf-8) t))))
 
 (require 'sql)
 
