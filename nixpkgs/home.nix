@@ -297,7 +297,7 @@ in {
         sts = "stash show";
       };
       extraConfig = {
-        url = { "git@github.com" = { insteadOf = "https://github.com/"; }; };
+        url = { "git@github.com:" = { insteadOf = "https://github.com/"; }; };
         github = { user = "mnakama"; };
         pull = { ff = "only"; };
         advice = { addIgnoredFile = false; };
