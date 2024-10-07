@@ -73,6 +73,8 @@ in {
 
       g=''git'';
       ga=''git add'';
+      # stage without whitespace changes. source: https://stackoverflow.com/a/45486981
+      gaw="git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -";
       gai=''clear; git add --interactive'';
       gap=''clear; git add -p'';
       gb=''git branch'';
