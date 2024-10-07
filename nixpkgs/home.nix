@@ -1,4 +1,4 @@
-{ pkgs, config, ...}:
+{ pkgs, config, lib, ...}:
 
 # https://nix-community.github.io/home-manager/options.xhtml
 # file:///etc/nixos/lib/Home%20Manager%20Configuration%20Options.xhtml
@@ -298,7 +298,7 @@ in {
       };
       extraConfig = {
         url = { "git@github.com:" = { insteadOf = "https://github.com/"; }; };
-        github = { user = "mnakama"; };
+        github = { user = lib.mkDefault "mnakama"; };
         pull = { ff = "only"; };
         advice = { addIgnoredFile = false; };
         init = { defaultBranch = "main"; };
