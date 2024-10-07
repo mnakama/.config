@@ -68,6 +68,11 @@
     (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t))
   (if (equal (system-name) "mnakama-MBPro")
     (set-face-attribute 'default nil :height 190))
+
+  ; Set font size for skytap WSL
+  ; https://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs
+  (if (equal (system-name) "nixos")
+    (set-face-attribute 'default nil :height 150))
 )
 
 (add-hook 'c-mode-common-hook (setq-default c-basic-offset 4
