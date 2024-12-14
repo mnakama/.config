@@ -61,10 +61,9 @@
 ;(telephone-line-separator-clear-cache telephone-line-abs-left)
 
 
-(if (or (equal (system-name) "beast")
-	    (equal (system-name) "mnakama-arch"))
+(if (equal (system-name) "rusty")
   (set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true" nil t)
-  (if (equal (system-name) "mattdesktop")
+  (if (or (equal (system-name) "mattdesktop") (equal (system-name) "beast"))
     (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t))
   (if (equal (system-name) "mnakama-MBPro")
     (set-face-attribute 'default nil :height 190))
