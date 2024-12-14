@@ -8,28 +8,9 @@ if test -f ~/.config/sx/Xresources; then
 	xrdb -merge ~/.config/sx/Xresources
 fi
 
-# HOST gets set somewhere else.
-#HOST=`hostnamectl hostname`
-
 xset dpms 7200 7200 14400
 
 systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AGENT_PID PASSWORD_STORE_DIR XDG_SESSION_TYPE
-
-# https://wiki.archlinux.org/title/Xorg#Display_size_and_DPI
-# choose one of:
-#  96 (100%)
-# 120 (125%)
-# 144 (150%)
-# 168 (175%)
-# 192 (200%)
-xrandr --dpi 144
-
-if [[ $HOST = 'mattnakama' ]]; then
-	xrandr \
-		--output DP-4 --mode 2560x1440 \
-		--output DP-0 --auto --right-of DP-4 --primary \
-		--output DP-3 --off
-fi
 
 # no cd; should keep current working directory as $HOME
 for file in ~/.config/autostart-pre/*; do
