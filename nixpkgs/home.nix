@@ -400,7 +400,7 @@ in {
   };
 
   systemd.user = {
-    startServices = "legacy";
+    startServices = true;
     sessionVariables = {
       XAUTHORITY = "$XDG_RUNTIME_DIR/xauthority";
       MOZ_USE_XINPUT2 = 1; # hi-res mousewheel scrolling in firefox
