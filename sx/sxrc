@@ -10,6 +10,13 @@ fi
 
 xset dpms 7200 7200 14400
 
+HOST=`hostnamectl hostname`
+if [[ $HOST = 'beast' ]]; then
+  xrandr --dpi 192
+else
+  xrandr --dpi 144
+fi
+
 systemctl --user import-environment XAUTHORITY DISPLAY PATH SSH_AUTH_SOCK SSH_AGENT_PID PASSWORD_STORE_DIR XDG_SESSION_TYPE
 
 # no cd; should keep current working directory as $HOME
