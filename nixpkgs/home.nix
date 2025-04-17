@@ -244,7 +244,7 @@ in {
       syntaxHighlighting.enable = true;
       enableVteIntegration = true;
       defaultKeymap = "viins";
-      autocd = true;
+      autocd = false;
       history = {
         ignoreDups = true;
         ignoreSpace = true;
