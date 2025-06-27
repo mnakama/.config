@@ -124,6 +124,10 @@ in {
       dclean=''docker system prune --volumes -fa'';
       dkc="docker compose";
 
+      da="direnv allow";
+      de="direnv edit";
+      dr="direnv reload";
+
       lt=''go test ./...'';
       lti=''go test ./... -tags=integration count=1'';
       lb=''go build'';
