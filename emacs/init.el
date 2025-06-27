@@ -68,7 +68,8 @@
 
 
 (if (equal (system-name) "rusty")
-  (set-frame-font "spleen:pixelsize=24:antialias=true:autohint=true" nil t)
+  ;(set-frame-font "spleen:pixelsize=16:antialias=false:autohint=false" nil t)
+  (set-face-attribute 'default nil :height 100)
   (if (or (equal (system-name) "mattdesktop") (equal (system-name) "beast"))
     (set-frame-font "spleen:pixelsize=32:antialias=true:autohint=true" nil t))
   (if (equal (system-name) "mnakama-MBPro")
@@ -233,6 +234,10 @@
   (global-undo-tree-mode t)
   :custom
   (undo-tree-auto-save-history nil))
+
+(use-package prettier-js
+  :config
+  (add-hook 'js2-mode-hook 'prettier-js-mode))
 
 (use-package evil
   :after undo-tree

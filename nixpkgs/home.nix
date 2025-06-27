@@ -5,8 +5,6 @@
 let
   runtime-dir = "/run/user/1000";
 in {
-  nixpkgs.config.allowUnfree = true;
-
   home = {
     stateVersion = "22.11";
 
@@ -211,6 +209,7 @@ in {
         org-jira
         php-mode
         plantuml-mode
+        prettier-js
         puppet-mode
         py-isort
         pycoverage
@@ -271,7 +270,7 @@ in {
           sway || sx
         fi
       '';
-      initExtra = builtins.readFile "${config.xdg.configHome}/zsh/zshrc";
+      initContent = builtins.readFile "${config.xdg.configHome}/zsh/zshrc";
     };
 
     fish = {
@@ -316,6 +315,11 @@ in {
         advice = { addIgnoredFile = false; };
         init = { defaultBranch = "main"; };
         core = { excludesfile = "~/.gitignore"; };
+        blame = {
+          ignoreRevsFile = ".git-blame-ignore-revs";
+          markIgnoredLines = true;
+          markUnblamableLines = true;
+        };
       };
     };
 
@@ -367,6 +371,11 @@ in {
           user = "root";
           hostname = "fc00::d250:99ff:fe7d:59c0";
           extraOptions = nopw;
+        };
+
+        "nas.mattnakama.com" = {
+          user = "matt";
+          port = 26;
         };
 
         sexy-arch = {
