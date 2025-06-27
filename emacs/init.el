@@ -15,6 +15,8 @@
 
 (setq ring-bell-function 'ignore)
 
+(setq auth-sources '("~/.authinfo.gpg"))
+
 ; enable mouse in console
 (xterm-mouse-mode t)
 
@@ -35,6 +37,10 @@
   `((".*" ,temporary-file-directory t)))
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
+
+(use-package ruff-format
+  :config
+  (add-hook 'python-mode-hook 'ruff-format-on-save-mode))
 
 ;(add-to-list 'load-path "~/.config/emacs/lisp")
 (eval-when-compile
@@ -111,9 +117,9 @@
   :mode ("\\.py\\'" . 'python-mode)
   :init (advice-add 'python-mode :before 'elpy-enable))
 
-(use-package py-isort
-  :mode ("\\.py\\'" . 'python-mode)
-  :config (add-hook 'before-save-hook 'py-isort-before-save))
+;(use-package py-isort
+;  :mode ("\\.py\\'" . 'python-mode)
+;  :config (add-hook 'before-save-hook 'py-isort-before-save))
 
 ;(setq py-python-command "python"
 ;	  python-shell-interpreter "python")
@@ -143,6 +149,14 @@
   (flycheck-add-mode 'javascript-flow 'flow-minor-mode)
   (flycheck-add-mode 'javascript-eslint 'flow-minor-mode)
   (flycheck-add-next-checker 'javascript-flow 'javascript-eslint))
+
+(use-package flycheck-pyre
+  :after flycheck
+  ;:init
+  ;(add-hook 'flycheck-mode-hook #'flycheck-pyre-setup)
+  :config
+  (flycheck-pyre-setup)
+  )
 
 (use-package yasnippet
   :init
@@ -207,6 +221,9 @@
     )
   )
 )
+
+; https://stackoverflow.com/a/12763858
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 
 
 (require 'sql)
@@ -296,8 +313,14 @@
   (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
   :hook (prog-mode . smartparens-mode))
 
-;(use-package magit)
+(use-package magit
+  :config
+  (keymap-set magit-mode-map "." #'forge-dispatch))
+
 (use-package git-link)
+
+(use-package forge
+  :after magit)
 
 (use-package evil-collection
   :after evil
@@ -347,18 +370,21 @@
   :config
   (defvar ivy-display-function #'ivy-posframe-display-at-frame-bottom-left))
 
-(if (string-match "nixos" (system-name)) (
+(when (string-match "nixos" (system-name))
 	; enable copilot on the work machine
 	; https://robert.kra.hn/posts/2023-02-22-copilot-emacs-setup/
-	(use-package copilot
-	:load-path (lambda () (expand-file-name "copilot.el" user-emacs-directory)))
+	;(use-package copilot)
+	;  :load-path
+
+	;  (lambda () (expand-file-name "copilot.el" user-emacs-directory)))
 	;; don't show in mode line
 	;:diminish
 
+	(use-package copilot)
 	(use-package org-jira
 	  :config
 	  (setq jiralib-url "https://skytap.atlassian.net"))
-))
+)
 
 ;(global-set-key "\M-x" 'execute-extended-command)
 

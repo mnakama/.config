@@ -192,6 +192,8 @@ in {
         evil-surround
         flycheck
         flycheck-flow
+        flycheck-pyre
+        forge
         git-link
         go-mode
         go-snippets
@@ -215,6 +217,7 @@ in {
         python-pytest
         request
         restclient
+        ruff-format
         smartparens
         swiper
         telephone-line
@@ -225,6 +228,7 @@ in {
         yasnippet
 
         # copilot deps
+        copilot
         dash
         editorconfig
         s
@@ -311,6 +315,7 @@ in {
         pull = { ff = "only"; };
         advice = { addIgnoredFile = false; };
         init = { defaultBranch = "main"; };
+        core = { excludesfile = "~/.gitignore"; };
       };
     };
 
