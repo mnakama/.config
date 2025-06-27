@@ -346,6 +346,13 @@ in {
           extraOptions = nopw;
         };
 
+        nas-remote = {
+          user = "matt";
+          hostname = "nas.mattnakama.com";
+          port = 26;
+          extraOptions = nopw;
+        };
+
         nas-root = {
           user = "root";
           extraOptions = nopw;
