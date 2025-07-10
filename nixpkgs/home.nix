@@ -406,15 +406,37 @@ in {
           port = 20332;
           extraOptions = nopw;
         };
+
+        primus = {
+          user = "matt";
+          port = 20332;
+          extraOptions = nopw;
+        };
+
+        buzz = {
+          user = "matt";
+          port = 20332;
+          extraOptions = nopw;
+        };
       };
     };
   };
 
-  xdg = {
+  xdg = let browser = "firefox.desktop"; in {
     mime.enable = true;
     mimeApps = {
       enable = true;
-      defaultApplications = let browser = "firefox.desktop"; in {
+      associations.added = {
+        "x-scheme-handler/http" = browser;
+        "x-scheme-handler/https" = browser;
+        "x-scheme-handler/chrome" = browser;
+        "application/x-extension-htm" = browser;
+        "application/x-extension-html" = browser;
+        "application/x-extension-shtml" = browser;
+        "application/x-extension-xhtml" = browser;
+        "application/x-extension-xht" = browser;
+      };
+      defaultApplications = {
         "application/xhtml+xml" = browser;
         "text/html" = browser;
         "text/xhtml" = browser;
