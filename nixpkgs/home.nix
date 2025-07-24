@@ -441,6 +441,8 @@ in {
         "text/html" = browser;
         "text/xhtml" = browser;
         "text/xml" = browser;
+        "x-scheme-handler/http" = browser;
+        "x-scheme-handler/https" = browser;
         "x-scheme-handler/tg" = "userapp-Telegram Desktop-PPY401.desktop";
         "x-scheme-handler/postman" = "Postman.desktop";
       };
