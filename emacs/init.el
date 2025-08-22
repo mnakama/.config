@@ -46,6 +46,8 @@
 (eval-when-compile
   (require 'use-package))
 
+(setq shell-file-name "/bin/sh")
+
 ; only needed on systems without nix/home-manager
 ;(require 'use-package-ensure)
 ;(setq use-package-always-ensure t)
@@ -135,6 +137,8 @@
 
 (use-package nix-mode
   :mode "\\.nix\\'")
+
+(use-package lsp-mode)
 
 (use-package flycheck
   :config

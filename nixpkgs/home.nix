@@ -202,6 +202,7 @@ in {
         js2-mode
         kubernetes
         kubernetes-evil
+        lsp-mode
         magit
         markdown-mode
         monky
@@ -376,9 +377,10 @@ in {
         "nas.mattnakama.com" = {
           user = "matt";
           port = 26;
+          extraOptions = nopw;
         };
 
-        sexy-arch = {
+        andraia = {
           user = "matt";
           extraOptions = nopw;
         };
