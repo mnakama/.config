@@ -276,7 +276,7 @@ in {
     };
 
     fish = {
-      enable = true;
+      enable = false;
       shellInit = ''
         fish_vi_key_bindings
       '';
