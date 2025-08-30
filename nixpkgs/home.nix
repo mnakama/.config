@@ -224,6 +224,7 @@ in {
         typescript-mode
         undo-tree
         use-package
+        vc-jj
         yaml-mode
         yasnippet
 
@@ -320,6 +321,16 @@ in {
           ignoreRevsFile = ".git-blame-ignore-revs";
           markIgnoredLines = true;
           markUnblamableLines = true;
+        };
+      };
+    };
+
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          name = "Matt Nakama";
+          email = lib.mkDefault "matt+git@mattnakama.com";
         };
       };
     };

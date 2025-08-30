@@ -326,6 +326,8 @@
   :config
   (keymap-set magit-mode-map "." #'forge-dispatch))
 
+(use-package vc-jj)
+
 (use-package git-link)
 
 (use-package forge
