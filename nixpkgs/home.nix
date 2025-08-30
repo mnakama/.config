@@ -202,6 +202,7 @@ in {
         js2-mode
         kubernetes
         kubernetes-evil
+        lazy-ruff
         lsp-mode
         magit
         markdown-mode
@@ -217,7 +218,6 @@ in {
         python-pytest
         request
         restclient
-        ruff-format
         smartparens
         swiper
         telephone-line

@@ -38,9 +38,9 @@
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
-(use-package ruff-format
+(use-package lazy-ruff
   :config
-  (add-hook 'python-mode-hook 'ruff-format-on-save-mode))
+  (lazy-ruff-global-mode t))
 
 ;(add-to-list 'load-path "~/.config/emacs/lisp")
 (eval-when-compile
