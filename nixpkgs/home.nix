@@ -332,6 +332,36 @@ in {
           name = "Matt Nakama";
           email = lib.mkDefault "matt+git@mattnakama.com";
         };
+
+        aliases = {
+          s = ["status"];
+          l = ["log" "-r" "::@"];
+          la = ["log" "-r" "::"];
+          ll = ["log" "-T" "builtin_log_compact_full_description"];
+        };
+
+        templates = {
+          log = "oneline";
+        };
+
+        template-aliases = {
+          # reference: https://github.com/jj-vcs/jj/blob/6a22e9acbde7ea66c8f5da33ade5314494474b53/cli/src/config/templates.toml#L155-L171
+          oneline = ''
+            separate(" ",
+              format_short_commit_id(commit_id),
+              author.name(),
+              bookmarks,
+              tags,
+              if(git_head, label("git_head", "git_head()")),
+              if(conflict, label("conflict", "conflict")),
+              if(empty, label("empty", "(empty)")),
+              if(description,
+                description.first_line(),
+                label(if(empty, "empty"), description_placeholder),
+              ),
+            )
+          '';
+        };
       };
     };
 
