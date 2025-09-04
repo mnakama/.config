@@ -335,9 +335,12 @@ in {
 
         aliases = {
           s = ["status"];
+          d = ["diff"];
           l = ["log" "-r" "::@"];
           la = ["log" "-r" "::"];
           ll = ["log" "-T" "builtin_log_compact_full_description"];
+          gp = ["git" "push"];
+          w = ["workspace"];
         };
 
         templates = {
