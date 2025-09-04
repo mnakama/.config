@@ -39,6 +39,8 @@
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 (use-package lazy-ruff
+  :if (executable-find "ruff")
+  :mode "\\.py\\'"
   :config
   (lazy-ruff-global-mode t))
 
@@ -90,6 +92,7 @@
 (use-package request)
 
 (use-package direnv
+  :if (executable-find "direnv")
   :config
   (direnv-mode))
 
@@ -240,6 +243,7 @@
   (undo-tree-auto-save-history nil))
 
 (use-package prettier-js
+  :if (executable-find "prettier")
   :config
   (add-hook 'js2-mode-hook 'prettier-js-mode))
 
@@ -312,7 +316,8 @@
   (add-hook 'evil-local-mode-hook 'turn-on-undo-tree-mode)
   )
 
-(use-package kubernetes)
+(use-package kubernetes
+  :if (executable-find "kubectl"))
 (use-package kubernetes-evil
   :after kubernetes evil)
 
@@ -323,6 +328,7 @@
   :hook (prog-mode . smartparens-mode))
 
 (use-package magit
+  :if (executable-find "git")
   :config
   (keymap-set magit-mode-map "." #'forge-dispatch))
 
