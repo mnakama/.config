@@ -333,6 +333,8 @@ in {
           email = lib.mkDefault "matt+git@mattnakama.com";
         };
 
+        ui.default-command = "log";
+
         aliases = {
           s     = ["status"];
           d     = ["diff"];
@@ -340,6 +342,7 @@ in {
           la    = ["log" "-r" "::"];
           ll    = ["log" "-T" "builtin_log_compact_full_description"];
           gp    = ["git" "push"];
+          push  = ["git" "push"];
           gf    = ["git" "fetch"];
           fetch = ["git" "fetch"];
           f     = ["git" "fetch"];
