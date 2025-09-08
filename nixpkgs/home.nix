@@ -334,13 +334,16 @@ in {
         };
 
         aliases = {
-          s = ["status"];
-          d = ["diff"];
-          l = ["log" "-r" "::@"];
-          la = ["log" "-r" "::"];
-          ll = ["log" "-T" "builtin_log_compact_full_description"];
-          gp = ["git" "push"];
-          w = ["workspace"];
+          s     = ["status"];
+          d     = ["diff"];
+          l     = ["log" "-r" "::@"];
+          la    = ["log" "-r" "::"];
+          ll    = ["log" "-T" "builtin_log_compact_full_description"];
+          gp    = ["git" "push"];
+          gf    = ["git" "fetch"];
+          fetch = ["git" "fetch"];
+          f     = ["git" "fetch"];
+          w     = ["workspace"];
         };
 
         templates = {
