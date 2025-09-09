@@ -38,6 +38,9 @@
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
+;(setq-default use-package-compute-statistics t)
+; M-x use-package-report
+
 (use-package lazy-ruff
   :config
   (lazy-ruff-global-mode t))
@@ -118,6 +121,7 @@
   :hook (before-save . gofmt-before-save))
 
 (use-package elpy
+  :defer t
   :mode ("\\.py\\'" . 'python-mode)
   :init (advice-add 'python-mode :before 'elpy-enable))
 
@@ -139,7 +143,8 @@
 (use-package nix-mode
   :mode "\\.nix\\'")
 
-(use-package lsp-mode)
+(use-package lsp-mode
+  :defer t)
 
 (use-package flycheck
   :config
@@ -315,6 +320,7 @@
   )
 
 (use-package kubernetes
+  :defer t
   :if (executable-find "kubectl"))
 (use-package kubernetes-evil
   :after kubernetes evil)
@@ -326,15 +332,18 @@
   :hook (prog-mode . smartparens-mode))
 
 (use-package magit
+  :defer t
   :if (executable-find "git")
   :config
-  (keymap-set magit-mode-map "." #'forge-dispatch))
+  (keymap-set magit-mode-map "." #'forge-dispatch)
+  )
 
 (use-package vc-jj)
 
 (use-package git-link)
 
 (use-package forge
+  :defer t
   :after magit)
 
 (use-package evil-collection
@@ -385,7 +394,7 @@
   :config
   (defvar ivy-display-function #'ivy-posframe-display-at-frame-bottom-left))
 
-(when (string-match "nixos" (system-name))
+;(when (string-match "nixos" (system-name))
 	; enable copilot on the work machine
 	; https://robert.kra.hn/posts/2023-02-22-copilot-emacs-setup/
 	;(use-package copilot)
@@ -395,11 +404,11 @@
 	;; don't show in mode line
 	;:diminish
 
-	(use-package copilot)
-	(use-package org-jira
-	  :config
-	  (setq jiralib-url "https://skytap.atlassian.net"))
-)
+	;(use-package copilot)
+	;(use-package org-jira
+	;  :config
+	;  (setq jiralib-url "https://skytap.atlassian.net"))
+;)
 
 ;(global-set-key "\M-x" 'execute-extended-command)
 
