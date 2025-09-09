@@ -39,8 +39,6 @@
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 (use-package lazy-ruff
-  :if (executable-find "ruff")
-  :mode "\\.py\\'"
   :config
   (lazy-ruff-global-mode t))
 
