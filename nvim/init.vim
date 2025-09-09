@@ -6,7 +6,6 @@ set nu
 
 set mouse=a
 
-
 set breakindent
 set linebreak
 set breakindentopt=shift:4
@@ -39,9 +38,3 @@ nnoremap <silent> <cr> :ll<cr>
 autocmd BufWrite *.c,*.cpp,*.h,*.H,*.js,*.py let w:winview = winsaveview() | :call DeleteTrailingWS()
 autocmd BufWrite *.js :Neomake
 autocmd BufWritePost *.c,*.cpp,*.h,*.H,*.js,*.py if exists('w:winview') | call winrestview(w:winview) | endif
-
-execute pathogen#infect()
-execute pathogen#helptags()
-
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_open_list = 1
