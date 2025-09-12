@@ -371,6 +371,11 @@ in {
             )
           '';
         };
+
+        revset-aliases = {
+          non_dev_tags = "tags() & ~tags(dev)";
+          "immutable_heads()" = "present(trunk()) | non_dev_tags | untracked_remote_bookmarks()";
+        };
       };
     };
 
