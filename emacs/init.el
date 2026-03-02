@@ -6,6 +6,15 @@
 (setq-default display-line-numbers-grow-only t
 			  display-line-numbers-width 3)
 
+(defun disable-line-numbers-mode ()
+  "Disable line numbers in a buffer."
+  (interactive)
+  (display-line-numbers-mode -1))
+
+; Disable line numbers for commands and compile output.
+(add-hook 'compile-mode-hook 'disable-line-numbers-mode)
+(add-hook 'comint-mode-hook 'disable-line-numbers-mode)
+
 (defvar show-paren-delay 0)
 (show-paren-mode t)
 (setq-default tab-width 4
