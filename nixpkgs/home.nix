@@ -212,6 +212,7 @@ in {
         php-mode
         plantuml-mode
         prettier-js
+        pretty-sha-path # /nix/store paths
         puppet-mode
         py-isort
         pycoverage
@@ -227,6 +228,8 @@ in {
         vc-jj
         yaml-mode
         yasnippet
+
+        (treesit-grammars.with-grammars (grammars: [ grammars.tree-sitter-python ]))
 
         # copilot deps
         copilot
