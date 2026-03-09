@@ -46,6 +46,13 @@ function seecert () {
 	(openssl s_client -showcerts -servername $1 -connect $1:$2 <<< "Q" | openssl x509 -text)
 }
 
+# mysql suffix shortcut
+function ms () {
+	suffix=$1
+	shift
+	mysql --defaults-group-suffix="-$suffix" "$@"
+}
+
 if [[ -f $HOME/projects/etc/z/z.sh ]]; then
   . $HOME/projects/etc/z/z.sh
 fi
