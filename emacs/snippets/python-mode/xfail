@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: xfail
+# key: xfail
+# description: add a pytest.xfail marker
+#
+# https://docs.pytest.org/en/latest/how-to/skipping.html#xfail-mark-test-functions-as-expected-to-fail
+# --
+@pytest.mark.xfail(strict=${1:False}, run=${2:False}, reason="${3:why it fails}")
